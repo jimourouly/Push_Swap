@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/10 20:39:37 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/10 20:42:04 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ int main (int ac, char **av)
 	i = 0;
 	if (ac == 1)
 		return (0);
+	if (ac == 2)
+	{
+		// need to split into sll
+	}
 	else
 	{
 		i = 1;
@@ -55,6 +59,7 @@ int main (int ac, char **av)
 				printerror();
 				return (0);
 			}
+
 			i++;
 		}
 	}
