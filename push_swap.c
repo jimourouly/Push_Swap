@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/11 15:35:30 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/11 16:13:50 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,6 @@
 #include <limits.h>
 
 
-void doubleupdate()
-{
-
-}
 
 int intchecker(char *number)
 {
@@ -51,8 +47,9 @@ void printerror(void)
 
 int main (int ac, char **av)
 {
-	int	i;
-	char **tab;
+	int		i;
+	char 	**tab;
+	t_list	*new;
 
 	i = 0;
 	if (ac == 1)
@@ -64,8 +61,11 @@ int main (int ac, char **av)
 		{
 			if (intchecker(tab[i]) == 0)
 				printerror();
+			new = ft_lstnew(tab[i]);
+
 			i++;
 		}
+
 	}
 	else
 	{
