@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/11 14:09:21 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/11 15:35:30 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 #include <limits.h>
 
 
+void doubleupdate()
+{
 
+}
 
 int intchecker(char *number)
 {
 	int			i;
-	int			num;
+	int			k;
 	long int 	digit;
 
 	digit = ft_atoli(number);
@@ -35,8 +38,6 @@ int intchecker(char *number)
 				printerror();
 		i++;
 	}
-	ft_printf("char %s\n", number);
-	printf("int %ld \n", digit);
 
 	return (1);
 
@@ -59,9 +60,9 @@ int main (int ac, char **av)
 	if (ac == 2)
 	{
 		tab = ft_split(av[1], ' ');
-		while(tab[i])
+		while (tab[i])
 		{
-			if(intchecker(tab[i]) == 0)
+			if (intchecker(tab[i]) == 0)
 				printerror();
 			i++;
 		}
