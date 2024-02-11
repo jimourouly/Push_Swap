@@ -6,7 +6,7 @@
 #    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/02/10 20:27:28 by jroulet          ###   ########.fr        #
+#    Updated: 2024/02/11 10:30:13 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,14 @@ clean: all
 	rm -f $(OBJS)
 
 fclean: clean
-	rm ./a.out
 	make -C $(LIBDIR) fclean
 	rm -f $(NAME)
+
+ffclean: clean
+	rm ./a.out
+	make -C $(LIBDIR) fclean
+	rm -f $(NAME) 
+
 
 re: fclean all
 
