@@ -6,7 +6,7 @@
 #    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/02/11 15:37:18 by jroulet          ###   ########.fr        #
+#    Updated: 2024/02/11 15:38:59 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ git: fclean
 	git commit -m "$t" -m "$b"
 	git push
 
-clean: 
+clean:	
 	make -C $(LIBDIR) clean
 	rm -f $(OBJS)
 
