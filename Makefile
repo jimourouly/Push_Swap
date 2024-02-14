@@ -6,14 +6,15 @@
 #    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/02/11 15:38:59 by jroulet          ###   ########.fr        #
+#    Updated: 2024/02/14 15:36:59 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS = -Wall -Werror -Wextra
 CC = cc
 DEBUGGER = -g 
-SRCS = push_swap.c
+SRCS = push_swap.c\
+	   linkedlist.c
 OBJS = $(SRCS:.c=.o)
 
 LIBDIR = ./libft
@@ -49,12 +50,7 @@ clean:
 fclean: clean
 	make -C $(LIBDIR) fclean
 	rm -f $(NAME)
-
-ffclean: clean
 	rm ./a.out
-	make -C $(LIBDIR) fclean
-	rm -f $(NAME) 
-
 
 re: fclean all
 
