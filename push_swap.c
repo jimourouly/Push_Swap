@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/14 15:40:30 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/16 16:17:48 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,50 +41,36 @@ void	printerror(void)
 	exit(0);
 }
 
-t_list	*argteat (int ac, char **av)
+void	argtreat (int ac, char **av)
 {
 	char	**tab;
 	int 	i;
-	t_lst	*new;
 
+	i = 0;	
 	if (ac == 2)
 	{
 		tab = ft_split(av[1], ' ');
-		while (tab[i])
-		{
-			if (intchecker(tab[i]) == 0)
-				printerror();
-			else 
-			{
-				new = ft_list_new(ft_atoi(tab[i]));
-				ft_lstprint(new);
-			}
-			i++;
-		}
+		while (tab[i] != NULL)
+			intchecker(tab[i++]);
 	}
 	else
 	{
 		i = 1;
 		while (i < ac)
-		{
-			if ((intchecker(av[i])) == 0)
-				printerror();
-			i++;
-		}
+			intchecker(av[i++]);
 	}
-	return (new);
 }
 
 int	main (int ac, char **av)
 {
 	int		i;
 	char	**tab;
-	t_list	*new;
 
 	i = 0;
 	if (ac == 1)
 		return (0);
 	else
-		new = argteat(ac, av);
-
+		argtreat (ac, av);
+	ft_printf("tout INt gg bg\n");
+	lstcreator(ac, av);
 }
