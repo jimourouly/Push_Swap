@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:20:01 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/16 16:17:14 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/16 18:07:54 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_printlist(t_list *head)
 {
 	int		i;
 	t_list	*temp;
-	
+
 	i = 0;
 	temp = head;
 	while (temp != NULL)
@@ -27,9 +27,17 @@ void	ft_printlist(t_list *head)
 	}
 }
 
-void	lstadd (t_list **lst, t_list *new)
+void	ft_findlst(t_lilst *head, int value)
 {
 	t_list	*temp;
+
+	temp = head;
+	while (temp != NULL)
+	{
+		if (temp->value == value)
+			printerror();
+		temp = temp->next;
+	}
 }
 
 void	lstcreator(int ac, char **av)
@@ -40,7 +48,7 @@ void	lstcreator(int ac, char **av)
 	t_list	*head;
 
 	head = NULL;
-	i = 0;	
+	i = 0;
 	if (ac == 2)
 	{
 		tab = ft_split(av[1], ' ');
@@ -51,7 +59,6 @@ void	lstcreator(int ac, char **av)
 			i++;
 		}
 		ft_printlist(head);
-
 	}
 	else
 	{
@@ -64,5 +71,4 @@ void	lstcreator(int ac, char **av)
 		}
 		ft_printlist(head);
 	}
-
 }
