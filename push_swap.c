@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/16 16:17:48 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/17 17:51:19 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
-int	intchecker(char *number)
+int	intchecker (char *number)
 {
 	int			i;
 	int			k;
@@ -35,7 +35,7 @@ int	intchecker(char *number)
 	return (1);
 }
 
-void	printerror(void)
+void	printerror (void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(0);
@@ -45,19 +45,63 @@ void	argtreat (int ac, char **av)
 {
 	char	**tab;
 	int 	i;
+	int		j;
+	int		len;
 
-	i = 0;	
+
+	len = 0;
+	i = i;	
 	if (ac == 2)
 	{
 		tab = ft_split(av[1], ' ');
+		while (tab[len])
+			len ++;
+		ft_printf("len = %d\n", len);
+		len --;
+		j = len;
+		ft_printf("j = :%d:\n", j);
+		ft_printf("tab[%d] = :%s: \t tab[%d] = :%s:\n", i, tab[i], len, tab[len]);
 		while (tab[i] != NULL)
-			intchecker(tab[i++]);
+		{
+			intchecker(tab[i]);
+			len = j;
+			while (len > i)
+			{
+				if (ft_atoi(tab[i]) == ft_atoi(tab[len]))
+					printerror();
+				len --;
+			}
+			i++;
+		}
+		i = 0;
+		while (tab[i])
+		{
+			ft_printf("free tab[%d]\n", i);
+			free(tab[i]);
+			free(*tab);
+			i++;
+		}
 	}
 	else
 	{
 		i = 1;
 		while (i < ac)
-			intchecker(av[i++]);
+		{
+			len = ac -1;
+			while (len > i)
+			{
+				if (ft_atoi(av[i]) == ft_atoi(av[len]))
+					printerror();
+				len --;
+			}
+			intchecker(av[i]);
+			i++;
+		}
+		i = 1;
+		while (i < ac)
+		{
+			free(*av);
+		}
 	}
 }
 

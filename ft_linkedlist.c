@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:20:01 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/16 18:07:54 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/17 16:56:13 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ void	ft_printlist(t_list *head)
 	}
 }
 
-void	ft_findlst(t_lilst *head, int value)
+void	ft_findlist(t_list *head, int value)
 {
 	t_list	*temp;
 
 	temp = head;
 	while (temp != NULL)
 	{
-		if (temp->value == value)
+		if (temp->content == value)
 			printerror();
 		temp = temp->next;
 	}
