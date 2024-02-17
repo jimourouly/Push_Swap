@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 14:20:01 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/17 17:55:56 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/17 17:56:35 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	ft_printlist(t_list *head)
 		i++;
 	}
 }
-
 
 void	lstcreator(int ac, char **av)
 {

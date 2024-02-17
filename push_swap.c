@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/17 17:51:19 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/17 18:39:46 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,10 @@ int	main (int ac, char **av)
 	if (ac == 1)
 		return (0);
 	else
-		argtreat (ac, av);
-	ft_printf("tout INt gg bg\n");
-	lstcreator(ac, av);
+	{
+		tabint (ac, av);
+	//	argtreat (ac, av);
+	}
+	//ft_printf("tout INt gg bg\n");
+	//lstcreator(ac, av);
 }
