@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/19 16:53:55 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/19 17:27:49 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int	doublechecker(char **tab)
 		j = len - 1;
 		while (j > i)
 		{
-			//ft_printf("tab[%d] = %s tab[%d] = %s \n",i, tab[i], j, tab[j] );
+			ft_printf("DB CHECK tab[%d] = %s tab[%d] = %s \n",i, tab[i], j, tab[j] );
 			if (ft_atoi(tab[i]) == ft_atoi(tab[j]))
-				return (0);
+				return (ft_atoi(tab[i]));
 			j--;
 		}
 		i++;
@@ -39,17 +39,18 @@ int	doublechecker(char **tab)
 	return (1);
 }
 
-int	checker (char **tab)
+int	checker (char **tab, int ac)
 {
 	ft_printf("____________________CHECKER\n\n");
 	int			i;
 	int			j;
 	long int	digit;
 
-	i =0;
+	i =1;
+	if (ac != 2)
+		i++;
 	while (tab[i])
 	{
-		ft_printf("tab[%d] = %s \n",i, tab[i]);
 		j = 0;
 		while (tab[i][j])
 		{
@@ -83,6 +84,7 @@ int	**tabint (int ac, char **av)
 	char	**tab;
 	int		i;
 	int		check;
+	int		j;
 
 	ft_printf("ac = %d\n", ac);
 	tab = malloc(sizeof(char*) * ac);
@@ -97,26 +99,36 @@ int	**tabint (int ac, char **av)
 		}
 	}
 	else {
+		i = 0;
 		while (i < ac)
 		{
 			tab[i] = malloc(sizeof(char*) * ft_strlen(av[i] + 1));
 			tab[i] = av[i];
-			ft_printf("ac = %d tab[%d] = %s\n", ac ,i, tab[i]);
+			ft_printf("ac = %d tab[%d] = %s ptr = %p \n", ac ,i, tab[i], &tab[i]);
 			i++;
 		}
 	}
-		check = checker(tab);
+	check = checker(tab, ac);
+	check = doublechecker(tab);
+	if (check != 0)
+		ft_printf("DOUBL\n");
 	if (check == 0)
 	{
 		i--;
 		ft_printf("i = %d\n", i);
-		while (i >= 0)
+		if (ac !=2)
+			j = 1;
+		else
+			j = 0;
+
+		while (i >= j)
 		{
-			ft_printf("tab[%d] %s LIBERTE\n", i, tab[i]);
+
+			ft_printf("tab[%d] ptr[%p] %s LIBERTE\n", i, &tab[i], tab[i]);
 			//free(tab[i]);
 			i -- ;
 		}
-		//free(tab);
+		free(tab);
 	}
 	ft_printf("is int = %d\n", check);
 	return (NULL);
