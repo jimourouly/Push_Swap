@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/17 21:51:24 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/19 16:53:55 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ int	doublechecker(char **tab)
 
 int	checker (char **tab)
 {
-	ft_printf("CHECKER\n\n");
+	ft_printf("____________________CHECKER\n\n");
 	int			i;
 	int			j;
 	long int	digit;
 
-	i = 0;
+	i =0;
 	while (tab[i])
 	{
 		ft_printf("tab[%d] = %s \n",i, tab[i]);
@@ -79,39 +79,44 @@ int	checker (char **tab)
 
 int	**tabint (int ac, char **av)
 {
-	ft_printf("TABINT\n\n");
+	ft_printf("_______________TABINT\n\n");
 	char	**tab;
 	int		i;
 	int		check;
 
-	i = 1;
-	if (ac >= 2)
+	ft_printf("ac = %d\n", ac);
+	tab = malloc(sizeof(char*) * ac);
+	i = 0;
+	if (ac == 2)
 	{
-		while (i <= ac)
+		tab = ft_split(av[1], ' ');
+		while (tab[i] != NULL)
 		{
-			tab = ft_split(av[1], ' ');
+			ft_printf("split tab[%d] = %s\n", i, tab[i]);
 			i++;
 		}
 	}
-	//to delete later
-	i = 0 ;
-	while (i < ac)
-	{
-		ft_printf("%s\n", tab[i]);
-		i++;
+	else {
+		while (i < ac)
+		{
+			tab[i] = malloc(sizeof(char*) * ft_strlen(av[i] + 1));
+			tab[i] = av[i];
+			ft_printf("ac = %d tab[%d] = %s\n", ac ,i, tab[i]);
+			i++;
+		}
 	}
-	//to delete later
-	check = checker(tab);
+		check = checker(tab);
 	if (check == 0)
 	{
-		i --;
+		i--;
+		ft_printf("i = %d\n", i);
 		while (i >= 0)
 		{
-			ft_printf("tab[%d] %s part pour la liberte\n", i, tab[i]);
-			free(tab[i]);
+			ft_printf("tab[%d] %s LIBERTE\n", i, tab[i]);
+			//free(tab[i]);
 			i -- ;
 		}
-		free(tab);
+		//free(tab);
 	}
 	ft_printf("is int = %d\n", check);
 	return (NULL);
