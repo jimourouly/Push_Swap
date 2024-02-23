@@ -21,6 +21,6 @@ int		intchecker(char *number);
 void	printerror(void);
 void	lstcreator(int ac, char **av);
 int		**tabint (int ac, char **av);
-void	freetab(char **tab, int ac);
+void	freetab(char **tab);
 
 #endif

@@ -12,17 +12,20 @@
 
 #include "push_swap.h"
 
-void	freetab(char **tab, int ac)
+void freetab(char **tab)
 {
-	int i;
+    int i = 0;
 
-	i = 0;
-	while (i < (ac -1))
-	{
-		free(tab[i]);
-		i++;		
-	}
-	free(tab);
+    if (tab == NULL) {
+        return;
+    }
+
+    while (tab[i]) {
+        free(tab[i]);
+        i++;
+    }
+
+    free(tab);
 }
 
 int	doublechecker(char **tab)
@@ -123,12 +126,12 @@ int	**tabint (int ac, char **av)
 	if (checker(tab, ac) == 0 || doublechecker(tab) == 0)
 	{
 		ft_printf("errorsalut");
-		//freetab(tab, ac);
+		freetab(tab);
 	}
 	else
 	{
 		ft_printf("ALL INT\n");
+		freetab(tab);
 	}
-	freetab(tab,ac);
 	return (NULL);
 }
