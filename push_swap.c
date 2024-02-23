@@ -35,7 +35,7 @@ int	intchecker (char *number)
 	return (1);
 }
 
-void	printerror (void)
+void	printerror ()
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(0);
@@ -77,7 +77,6 @@ void	argtreat (int ac, char **av)
 		while (tab[i])
 		{
 			ft_printf("free tab[%d]\n", i);
-			free(tab[i]);
 			free(*tab);
 			i++;
 		}
@@ -118,6 +117,6 @@ int	main (int ac, char **av)
 		tabint (ac, av);
 	//	argtreat (ac, av);
 	}
-	//ft_printf("tout INt gg bg\n");
 	//lstcreator(ac, av);
+	//freetab(tab, ac);
 }
