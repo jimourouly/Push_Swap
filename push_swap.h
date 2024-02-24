@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/23 13:59:04 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/24 17:14:28 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 int		intchecker(char *number);
 void	printerror(void);
 void	lstcreator(int ac, char **av);
-int		**tabint (int ac, char **av);
-void	freetab(char **tab);
+int		**tabint(int ac, char **av);
+void	freetab(char **tab, int ac);
+void    run_tests(void);
 
 #endif

@@ -14,8 +14,8 @@ FLAGS = -Wall -Werror -Wextra
 CC = cc
 DEBUGGER = -g 
 SRCS = push_swap.c\
-	   ft_linkedlist.c\
-	   totab.c
+	   totab.c\
+	   tester.c
 OBJS = $(SRCS:.c=.o)
 
 LIBDIR = ./libft

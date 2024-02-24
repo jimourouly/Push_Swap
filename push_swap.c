@@ -6,7 +6,7 @@
 /*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/17 18:39:46 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/02/24 17:20:12 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <limits.h>
 
-int	intchecker (char *number)
+int	intchecker(char *number)
 {
 	int			i;
 	int			k;
@@ -35,17 +35,15 @@ int	intchecker (char *number)
 	return (1);
 }
 
-void	printerror ()
+void	printerror(void)
 {
 	ft_putstr_fd("Error\n", 2);
 	exit(0);
 }
 
-int	main (int ac, char **av)
+int	main(int ac, char **av)
 {
-	int		i;
-
-	i = 0;
+	run_tests();
 	if (ac == 1)
 		return (0);
 	else
