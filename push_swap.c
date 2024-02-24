@@ -41,69 +41,6 @@ void	printerror ()
 	exit(0);
 }
 
-void	argtreat (int ac, char **av)
-{
-	char	**tab;
-	int 	i;
-	int		j;
-	int		len;
-
-
-	len = 0;
-	i = i;	
-	if (ac == 2)
-	{
-		tab = ft_split(av[1], ' ');
-		while (tab[len])
-			len ++;
-		ft_printf("len = %d\n", len);
-		len --;
-		j = len;
-		ft_printf("j = :%d:\n", j);
-		ft_printf("tab[%d] = :%s: \t tab[%d] = :%s:\n", i, tab[i], len, tab[len]);
-		while (tab[i] != NULL)
-		{
-			intchecker(tab[i]);
-			len = j;
-			while (len > i)
-			{
-				if (ft_atoi(tab[i]) == ft_atoi(tab[len]))
-					printerror();
-				len --;
-			}
-			i++;
-		}
-		i = 0;
-		while (tab[i])
-		{
-			ft_printf("free tab[%d]\n", i);
-			free(*tab);
-			i++;
-		}
-	}
-	else
-	{
-		i = 1;
-		while (i < ac)
-		{
-			len = ac -1;
-			while (len > i)
-			{
-				if (ft_atoi(av[i]) == ft_atoi(av[len]))
-					printerror();
-				len --;
-			}
-			intchecker(av[i]);
-			i++;
-		}
-		i = 1;
-		while (i < ac)
-		{
-			free(*av);
-		}
-	}
-}
-
 int	main (int ac, char **av)
 {
 	int		i;
@@ -115,8 +52,5 @@ int	main (int ac, char **av)
 	else
 	{
 		tabint (ac, av);
-	//	argtreat (ac, av);
 	}
-	//lstcreator(ac, av);
-	//freetab(tab, ac);
 }

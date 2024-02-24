@@ -14,6 +14,7 @@
 
 void freetab(char **tab)
 {
+	ft_printf("_______________FREETAB\n\n");
     int i = 0;
 
     if (tab == NULL) {
@@ -25,12 +26,13 @@ void freetab(char **tab)
         i++;
     }
 
+	ft_printf("tab is being freed\n");
     free(tab);
 }
 
 int	doublechecker(char **tab)
 {
-    ft_printf("DOUBLECHECKER\n");
+    ft_printf("DOUBLECHECKER\n\n");
     int i;
     int j;
     int len;
@@ -45,13 +47,17 @@ int	doublechecker(char **tab)
         j = len - 1;
         while (j > i)
         {
-            ft_printf("DB CHECK tab[%d] = %s tab[%d] = %s \n", i, tab[i], j, tab[j]);
+            ft_printf("DB CHECK tab[%d] = %d tab[%d] = %d \n", i, ft_atoi(tab[i]), j - 1, ft_atoi(tab[j - 1]));
             if (ft_atoi(tab[i]) == ft_atoi(tab[j]))
+			{
+				ft_printf("END_DOUBLECHECKER\n\n");
                 return (0);
+			}
             j--;
         }
         i++;
     }
+	ft_printf("END_DOUBLECHECKER\n\n");
     return (1);
 }
 
@@ -74,6 +80,7 @@ int	checker (char **tab, int ac)
 				j ++;
 			if (!ft_isdigit(tab[i][j]))
 			{
+				ft_printf("exit CHECKER\n\n");
 				return (0);
 			}
 			j++;
@@ -86,52 +93,54 @@ int	checker (char **tab, int ac)
 		digit = (ft_atoli(tab[i]));
 		if (digit < INT_MIN || digit > INT_MAX)
 		{
+			ft_printf("exit CHECKER\n");
 			return (0);
 		}
 		i++;
 	}
-	//tab[i] = NULL;
+	ft_printf("exit CHECKER\n");
 	return (1);
 }
 
+
 int	**tabint (int ac, char **av)
 {
-	ft_printf("_______________TABINT\n\n");
-	char	**tab;
-	int		i;
-	int		j;
+    ft_printf("_______________TABINT\n\n");
+    char	**tab;
+    int		i;
 
-	ft_printf("ac = %d\n", ac);
-	tab = malloc(sizeof(char*) * ac);
-	i = 0;
-	if (ac == 2)
-	{
-		tab = ft_split(av[1], ' ');
-		while (tab[i] != NULL)
-		{
-			ft_printf("split tab[%d] = %s\n", i, tab[i]);
-			i++;
-		}
-	}
-	else {
-	i = 1;
-	while (i < ac)
-	{
-    	tab[i - 1] = malloc(sizeof(char) * (ft_strlen(av[i]) + 1));
-    	ft_memcpy(tab[i - 1], av[i], ft_strlen(av[i]) + 1);
-    	ft_printf("ac = %d tab[%d] = %s ptr = %p \n", ac, i - 1, tab[i - 1], &tab[i - 1]);
-    	i++;
-	}
-	}
-	if (checker(tab, ac) == 0 || doublechecker(tab) == 0)
-	{
-		ft_printf("errorsalut");
-		freetab(tab);
-	}
-	else
-	{
-		ft_printf("ALL INT\n");
-		freetab(tab);
-	}
-	return (NULL);
+    ft_printf("ac = %d\n", ac);
+    if (ac == 2)
+    {
+        tab = ft_split(av[1], ' ');
+        i = 0;
+        while (tab[i] != NULL)
+        {
+            ft_printf("split tab[%d] = %s\n", i, tab[i]);
+            i++;
+        }
+    }
+    else {
+        tab = malloc(sizeof(char*) * (ac - 1));
+        i = 0;
+        while (i < ac - 1)
+        {
+            tab[i] = malloc(sizeof(char) * (ft_strlen(av[i + 1]) + 1));
+            ft_strcpy(tab[i], av[i + 1]);
+            ft_printf("tab[%d] = %s\n", i, tab[i]);
+            i++;
+        }
+        tab[i] = NULL;
+    }
+
+    if (checker(tab, ac) == 0 || doublechecker(tab) == 0)
+    {
+        freetab(tab);
+    }
+    else
+    {
+        ft_printf("ALL INT\n");
+        freetab(tab);
+    }
+    return (NULL);
 }
