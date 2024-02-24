@@ -26,7 +26,7 @@ void freetab(char **tab)
         i++;
     }
 
-	ft_printf("tab is being freed\n");
+	ft_printf("\033[0;32mtab is being freed\033[0m\n");
     free(tab);
 }
 
@@ -50,14 +50,14 @@ int	doublechecker(char **tab)
             ft_printf("DB CHECK tab[%d] = %d tab[%d] = %d \n", i, ft_atoi(tab[i]), j - 1, ft_atoi(tab[j - 1]));
             if (ft_atoi(tab[i]) == ft_atoi(tab[j]))
 			{
-				ft_printf("END_DOUBLECHECKER\n\n");
+				ft_printf("\033[0;31mERROR DOUBLE\033[0m\n\n");
                 return (0);
 			}
             j--;
         }
         i++;
     }
-	ft_printf("END_DOUBLECHECKER\n\n");
+	ft_printf("\033[0;32mOK DOUBLE\033[0m\n\n");
     return (1);
 }
 
@@ -80,7 +80,7 @@ int	checker (char **tab, int ac)
 				j ++;
 			if (!ft_isdigit(tab[i][j]))
 			{
-				ft_printf("exit CHECKER\n\n");
+				ft_printf("\033[0;31mERROR ISINT\033[0m\n\n");
 				return (0);
 			}
 			j++;
@@ -93,12 +93,12 @@ int	checker (char **tab, int ac)
 		digit = (ft_atoli(tab[i]));
 		if (digit < INT_MIN || digit > INT_MAX)
 		{
-			ft_printf("exit CHECKER\n");
+			ft_printf("\033[0;31mERROR TO BIG\033[0m\n");
 			return (0);
 		}
 		i++;
 	}
-	ft_printf("exit CHECKER\n");
+	ft_printf("\033[0;32mOK INT AND LIMIT INT\033[0m\n");
 	return (1);
 }
 
@@ -139,7 +139,7 @@ int	**tabint (int ac, char **av)
     }
     else
     {
-        ft_printf("ALL INT\n");
+        ft_printf("\033[0;32mALL INT\033[0m\n");
         freetab(tab);
     }
     return (NULL);

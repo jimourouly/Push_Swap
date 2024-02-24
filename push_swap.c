@@ -44,7 +44,6 @@ void	printerror ()
 int	main (int ac, char **av)
 {
 	int		i;
-	char	**tab;
 
 	i = 0;
 	if (ac == 1)
