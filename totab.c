@@ -67,23 +67,20 @@ int	doublechecker(char **tab)
 	return (1);
 }
 
-int	checker(char **tab, int ac)
+int	checker(char **tab)
 {
 	int			i;
 	int			j;
 	long int	digit;
 
-	i = 1;
-	if (ac != 2)
-		i++;
+	i = 0;
 	while (tab[i])
 	{
+        ft_printf("\033[0;32mchecking tab[%d] = %s\033[0m\n", i, tab[i]);
 		j = 0;
 		while (tab[i][j])
 		{
-			if (tab[i][j] == '-' || tab[i][j] == '+')
-				j ++;
-			if (!ft_isdigit(tab[i][j]))
+		    if (!ft_isdigit(tab[i][j]))
 			{
 				ft_printf("\033[0;31mERROR ISINT\033[0m\n");
 				return (0);
@@ -118,12 +115,13 @@ int	**tabint(int ac, char **av)
 		tab = ft_split(av[1], ' ');
 	else
 	{
-		tab = malloc(sizeof(char *) * (ac - 1));
+		tab = malloc(sizeof(char *) * (ac + 1));
 		i = 0;
 		while (i < ac - 1)
 		{
 			tab[i] = malloc(sizeof(char) * (ft_strlen(av[i + 1]) + 1));
 			ft_strcpy(tab[i], av[i + 1]);
+            ft_printf("\033[0;32mcopy av[%d] = %s to tab[%d] = %s\033[0m\n", i + 1, av[i + 1], i, tab[i]);
 			i++;
 		}
 		tab[i] = NULL;
@@ -133,7 +131,7 @@ int	**tabint(int ac, char **av)
 		ft_printf("\033[0;31mERROR MALLOC\033[0m\n");
 		return (NULL);
 	}
-	if (checker(tab, ac) == 0 || doublechecker(tab) == 0)
+	if (checker(tab) == 0 || doublechecker(tab) == 0)
 	{
 		freetab(tab, ac);
 		return (NULL);

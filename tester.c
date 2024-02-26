@@ -20,6 +20,11 @@ void run_tests(void)
         "8 7 6 k",
         "8 7 6 7",
         "8 7 6 99999999999",
+        "k 7 6",
+        "8 7 8",
+        "8 k 7",
+        "999999999999 8 7",
+        "8 99999999999 8",
     };
     int num_single_arg_tests = sizeof(single_arg_tests) / sizeof(single_arg_tests[0]);
 
@@ -36,8 +41,13 @@ void run_tests(void)
         {  "8", "7", "6", "k", NULL },
         {  "8", "7", "6", "7", NULL },
         {  "8", "7", "6", "99999999999", NULL },
+        {  "k", "7", "6", "8", NULL },
+        {  "7", "k", "6", "8", NULL },
+        {  "6", "7", "k", "8", NULL },
+        {  "99999999999", "7", "9", "8", NULL },
    
     };
+    
     int num_multi_arg_tests = sizeof(multi_arg_tests) / sizeof(multi_arg_tests[0]);
 
     for (int i = 0; i < num_multi_arg_tests; i++) {
