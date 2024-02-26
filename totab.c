@@ -12,6 +12,25 @@
 
 #include "push_swap.h"
 
+int *tabtoint(char **chartab)
+{
+    int i;
+    int *inttab;
+
+    i = 0;
+
+    while (chartab[i])
+        i++;
+    inttab = malloc(sizeof(int) * i);
+    i = 0;
+    while (chartab[i])
+    {
+        inttab[i] = ft_atoi(chartab[i]);
+        i++;
+    }
+    return (inttab);
+}
+
 void	freetab(char **tab, int ac)
 {
 	int	i;
@@ -54,8 +73,10 @@ int	doublechecker(char **tab)
 		j = len - 1;
 		while (j > i)
 		{
+            ft_printf("\033[0;32mChecking double tab[%d] %d and tab[%d] %d\033[0m\n", i , ft_atoi(tab[i]), j, ft_atoi(tab[j]));
 			if (ft_atoi(tab[i]) == ft_atoi(tab[j]))
 			{
+                ft_printf("\033[0;31mtab[%d] :%d: = tab[%d] :%d:\033[0m\n", i, ft_atoi(tab[i]), j, ft_atoi(tab[j]));
 				ft_printf("\033[0;31mERROR DOUBLE\033[0m\n");
 				return (0);
 			}
@@ -76,7 +97,7 @@ int	checker(char **tab)
 	i = 0;
 	while (tab[i])
 	{
-        ft_printf("\033[0;32mchecking tab[%d] = %s\033[0m\n", i, tab[i]);
+        ft_printf("\033[0;32mchecking chartab[%d] = %s\033[0m\n", i, tab[i]);
 		j = 0;
 		while (tab[i][j])
 		{
@@ -104,12 +125,13 @@ int	checker(char **tab)
 	return (1);
 }
 
-int	**tabint(int ac, char **av)
+int	*tabint(int ac, char **av)
 {
 	char	**tab;
 	int		i;
 	int		dcheck;
 	int		check;
+    int     *inttab;
 
 	if (ac == 2)
 		tab = ft_split(av[1], ' ');
@@ -136,6 +158,11 @@ int	**tabint(int ac, char **av)
 		freetab(tab, ac);
 		return (NULL);
 	}
+    else
+    {
+        inttab = (tabtoint(tab));
+        return (inttab);
+    }
 	freetab(tab, ac);
 	return (NULL);
 }

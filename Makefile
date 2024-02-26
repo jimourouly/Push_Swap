@@ -15,7 +15,8 @@ CC = cc
 DEBUGGER = -g 
 SRCS = push_swap.c\
 	   totab.c\
-	   tester.c
+	   tester.c\
+	   ft_linkedlist.c
 OBJS = $(SRCS:.c=.o)
 
 LIBDIR = ./libft

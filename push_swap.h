@@ -20,8 +20,11 @@
 int		intchecker(char *number);
 void	printerror(void);
 void	lstcreator(int ac, char **av);
-int		**tabint(int ac, char **av);
+int		*tabint(int ac, char **av);
 void	freetab(char **tab, int ac);
 void    run_tests(void);
+t_node	*ft_node_create_new(int value);
+void	ft_node_insert_to_end(t_node **head, t_node *newnode);
+void	ft_node_print_list(t_node *head);
 
 #endif

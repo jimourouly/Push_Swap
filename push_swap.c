@@ -14,27 +14,6 @@
 #include <stdlib.h>
 #include <limits.h>
 
-int	intchecker(char *number)
-{
-	int			i;
-	int			k;
-	long int	digit;
-
-	digit = ft_atoli(number);
-	if (digit < INT_MIN || digit > INT_MAX)
-		printerror();
-	i = 0;
-	if (number[0] == '-' || number[0] == '+')
-		i = 1;
-	while (number[i])
-	{
-		if (!ft_isdigit(number[i]))
-			printerror();
-		i++;
-	}
-	return (1);
-}
-
 void	printerror(void)
 {
 	ft_putstr_fd("Error\n", 2);
@@ -43,11 +22,27 @@ void	printerror(void)
 
 int	main(int ac, char **av)
 {
-	//run_tests();
+    int *inttab;
+    int i;
+    t_node *temp;
+    t_node *head;
+
+    head = NULL;
+
 	if (ac == 1)
 		return (0);
 	else
 	{
-		tabint (ac, av);
+        inttab = tabint (ac, av);
+        if (!inttab)
+            printerror();
+        while (inttab[i])
+        {
+            temp = ft_node_create_new(inttab[i]);
+            ft_node_insert_to_end(&head, temp);
+            i++;
+
+        }
+        ft_node_print_list(head);
 	}
 }
