@@ -101,6 +101,9 @@ int	checker(char **tab)
 		j = 0;
 		while (tab[i][j])
 		{
+            if (tab[i][j] == '-' || tab[i][j] == '+')
+                j++;
+            ft_printf("\033[0;32mchecking chartab[%d][%d] = %c\033[0m\n", i, j, tab[i][j]);
 		    if (!ft_isdigit(tab[i][j]))
 			{
 				ft_printf("\033[0;31mERROR ISINT\033[0m\n");
