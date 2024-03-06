@@ -28,14 +28,14 @@ void    swap(t_node *stack)
 void    sa(t_node **stacka)
 {
     swap(*stacka);
-    ft_printf("sa\n");
+    ft_printf("\033[0;31m SA \033[0m\n");
 }
 
 // switch top 2 on b
 void    sb(t_node **stackb)
 {
     swap(*stackb);
-    ft_printf("sb\n");
+    ft_printf("\033[0;31m SB \033[0m\n");
 }
 
 // switch top 2 on a and b
@@ -43,5 +43,5 @@ void    ss(t_node **stacka, t_node **stackb)
 {
     swap(*stacka);
     swap(*stackb);
-    ft_printf("ss\n");
+    ft_printf("\033[0;31m SS \033[0m\n");
 }

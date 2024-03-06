@@ -14,36 +14,36 @@
 
 void    rev(t_node **stack)
 {
-    t_node  *tmp;
-    t_node  *bottom;
-    t_node  *prev;
-    t_node  *current;
+    t_node  *last;
+    t_node  *justbeforethelast;
 
-    prev = NULL;
-    current = *stack;
-    while (current->next != NULL)
+    if (*stack == NULL || (*stack)->next == NULL)
+        return;
+    last = *stack;
+    justbeforethelast = NULL;
+    while (last->next != NULL)
     {
-        prev = current;
-        current = current->next;
+        justbeforethelast = last;
+        last = last->next;
     }
-    bottom = current;
-    prev->next = NULL;
-    *stack = bottom;
-    (*stack)->next = tmp;
+
+    justbeforethelast->next = NULL;
+    last->next = *stack;
+    *stack = last;
 }
 
 //descend all node from a
 void    rra(t_node **stacka)
 {
     rev(stacka);
-    ft_printf("rra\n");
+    ft_printf("\033[0;31m RRA \033[0m\n");
 }
 
 //descend all node from b
 void    rrb(t_node **stackb)
 {
     rev(stackb);
-    ft_printf("rrb\n");
+    ft_printf("\033[0;31m RRB \033[0m\n");
 }
 
 //rra and rrb
@@ -51,5 +51,5 @@ void    rrr(t_node **stacka, t_node **stackb)
 {
     rra(stacka);
     rrb(stackb);
-    ft_printf("rrr\n");
+    ft_printf("\033[0;31m RRR \033[0m\n");
 }

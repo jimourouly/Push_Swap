@@ -16,14 +16,14 @@
 void    pusha(t_node **stacka, t_node **stackb)
 {
     push(stackb, stacka);
-    ft_printf("pa\n");
+    ft_printf("\033[0;31m PA \033[0m\n");
 }
 
 //push top one from a to b
 void    pushb(t_node **stacka, t_node **stackb)
 {
     push(stacka, stackb);
-    ft_printf("pb\n");
+    ft_printf("\033[0;31m PB \033[0m\n");
 }
 
 void    push(t_node **src, t_node **dest)
