@@ -12,6 +12,15 @@
 
 #include "push_swap.h"
 
+t_node  *getbottomnode(t_node *stack)
+{
+   if (stack == NULL)
+        return (NULL);
+    while(stack && stack->next)
+        stack = stack->next;
+    return (stack);
+}
+
 t_node	*ft_node_create_new(int value)
 {
 	t_node	*result;
@@ -43,6 +52,21 @@ void	ft_node_insert_to_end(t_node **head, t_node *newnode)
 	}
 }
 
+int     ft_node_length(t_node *head)
+{
+    int i;
+    t_node *temp;
+
+    i = 0;
+    temp = head;
+    while (temp != NULL)
+    {
+        temp = temp->next;
+        i++;
+    }
+    return (i);
+}
+
 void	ft_node_print_list(t_node *head)
 {
 	int		i;
@@ -58,3 +82,5 @@ void	ft_node_print_list(t_node *head)
 	}
 	ft_printf("\n");
 }
+
+

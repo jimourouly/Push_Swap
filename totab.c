@@ -128,7 +128,7 @@ int	checker(char **tab)
 	return (1);
 }
 
-int	*tabint(int ac, char **av)
+int	*tabint(int ac, char **av, int *len)
 {
 	char	**tab;
 	int		i;
@@ -164,6 +164,7 @@ int	*tabint(int ac, char **av)
     else
     {
         inttab = (tabtoint(tab));
+        *len = i;
         return (inttab);
     }
 	freetab(tab, ac);

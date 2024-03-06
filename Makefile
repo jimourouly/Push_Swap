@@ -16,7 +16,11 @@ DEBUGGER = -g
 SRCS = push_swap.c\
 	   totab.c\
 	   tester.c\
-	   ft_linkedlist.c
+	   ft_linkedlist.c\
+	   ./sort/push.c\
+	   ./sort/rotate.c\
+	   ./sort/swap.c\
+	   ./sort/reverserotate.c
 OBJS = $(SRCS:.c=.o)
 
 LIBDIR = ./libft

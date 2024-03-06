@@ -14,6 +14,7 @@
 
 void run_tests(void)
 {
+    int i;
     
     char *single_arg_tests[] = {
         "8 7 6",
@@ -33,7 +34,7 @@ void run_tests(void)
         int ac = sizeof(av) / sizeof(av[0]);
 
         printf("\n\nTesting with single argument: '%s'\n", single_arg_tests[i]);
-        tabint(ac, av);
+        tabint(ac, av, &i);
     }
 
     char *multi_arg_tests[][5] = {
@@ -62,6 +63,6 @@ void run_tests(void)
         }
         printf("\n");
 
-        tabint(ac, multi_arg_tests[i]);
+        tabint(ac, multi_arg_tests[i], &i);
     }
 }
