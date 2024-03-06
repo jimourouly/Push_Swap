@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ft_linkedlist.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:50:16 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/24 18:50:17 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/03/06 18:12:37 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node  *getbottomnode(t_node *stack)
+t_node	*getbottomnode(t_node *stack)
 {
-    t_node  *tmp;
-    
-    if (!stack)
-        return (NULL);
-    tmp = stack;
-    while (tmp->next)
-        tmp = tmp->next;
-    return (tmp);
+	t_node	*tmp;
+
+	if (!stack)
+		return (NULL);
+	tmp = stack;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
 }
 
 t_node	*ft_node_create_new(int value)
@@ -55,19 +55,19 @@ void	ft_node_insert_to_end(t_node **head, t_node *newnode)
 	}
 }
 
-int     ft_node_length(t_node *head)
+int	ft_node_length(t_node *head)
 {
-    int i;
-    t_node *temp;
+	int		i;
+	t_node	*temp;
 
-    i = 0;
-    temp = head;
-    while (temp != NULL)
-    {
-        temp = temp->next;
-        i++;
-    }
-    return (i);
+	i = 0;
+	temp = head;
+	while (temp != NULL)
+	{
+		temp = temp->next;
+		i++;
+	}
+	return (i);
 }
 
 void	ft_node_print_list(t_node *head)

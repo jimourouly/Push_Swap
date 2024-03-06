@@ -3,48 +3,48 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:47 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/06 15:04:49 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/03/06 18:10:01 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void    rotate(t_node **stack)
+void	rotate(t_node **stack)
 {
-    t_node *tmp;
-    t_node *bottom;
+	t_node	*tmp;
+	t_node	*bottom;
 
-    if (!stack || !(*stack)->next)
-        return;
-    tmp = *stack;
-    *stack = (*stack)->next;
-    bottom = getbottomnode(*stack);
-    tmp->next = NULL;
-    bottom->next = tmp;
+	if (!stack || !(*stack)->next)
+		return ;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	bottom = getbottomnode(*stack);
+	tmp->next = NULL;
+	bottom->next = tmp;
 }
 
 //ascending all node in stack a
-void    ra(t_node **stacka)
+void	ra(t_node **stacka)
 {
-    rotate(stacka);
-    ft_printf("\033[0;31m RA - all up in A\033[0m\n");
+	rotate(stacka);
+	ft_printf("\033[0;31m RA - all up in A\033[0m\n");
 }
 
 //ascending all node in stack b
-void    rb(t_node **stackb)
+void	rb(t_node **stackb)
 {
-    rotate(stackb);
-    ft_printf("\033[0;31m RB - all up in B\033[0m\n");
+	rotate(stackb);
+	ft_printf("\033[0;31m RB - all up in B\033[0m\n");
 }
 
 //ascending all node in both stack
-void    rr(t_node **stacka, t_node **stackb)
+void	rr(t_node **stacka, t_node **stackb)
 {
-    ra(stacka);
-    rb(stackb);
-    ft_printf("\033[0;31m RR - all up in A and B\033[0m\n");
+	ra(stacka);
+	rb(stackb);
+	ft_printf("\033[0;31m RR - all up in A and B\033[0m\n");
 }
 
