@@ -30,14 +30,14 @@ void    rotate(t_node **stack)
 void    ra(t_node **stacka)
 {
     rotate(stacka);
-    ft_printf("\033[0;31m RA \033[0m\n");
+    ft_printf("\033[0;31m RA - all up in A\033[0m\n");
 }
 
 //ascending all node in stack b
 void    rb(t_node **stackb)
 {
     rotate(stackb);
-    ft_printf("\033[0;31m RB \033[0m\n");
+    ft_printf("\033[0;31m RB - all up in B\033[0m\n");
 }
 
 //ascending all node in both stack
@@ -45,6 +45,6 @@ void    rr(t_node **stacka, t_node **stackb)
 {
     ra(stacka);
     rb(stackb);
-    ft_printf("\033[0;31m RR \033[0m\n");
+    ft_printf("\033[0;31m RR - all up in A and B\033[0m\n");
 }
 

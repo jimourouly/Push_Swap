@@ -36,14 +36,14 @@ void    rev(t_node **stack)
 void    rra(t_node **stacka)
 {
     rev(stacka);
-    ft_printf("\033[0;31m RRA \033[0m\n");
+    ft_printf("\033[0;31m RRA - all down on A\033[0m\n");
 }
 
 //descend all node from b
 void    rrb(t_node **stackb)
 {
     rev(stackb);
-    ft_printf("\033[0;31m RRB \033[0m\n");
+    ft_printf("\033[0;31m RRB - all down on B\033[0m\n");
 }
 
 //rra and rrb
@@ -51,5 +51,5 @@ void    rrr(t_node **stacka, t_node **stackb)
 {
     rev(stacka);
     rev(stackb);
-    ft_printf("\033[0;31m RRR \033[0m\n");
+    ft_printf("\033[0;31m RRR - all down on A and B \033[0m\n");
 }

@@ -54,7 +54,6 @@ void test_operations()
 
     // Test pusha
     pusha(&stackA, &stackB);
-    printf("After pusha: \n");
     printf("Stack A: \n");
     ft_node_print_list(stackA);
     printf("Stack B: \n");
@@ -62,7 +61,6 @@ void test_operations()
 
    // Test pushb
     pushb(&stackA, &stackB);
-    printf("After pusha: \n");
     printf("Stack A: \n");
     ft_node_print_list(stackA);
     printf("Stack B: \n");
@@ -70,39 +68,33 @@ void test_operations()
 
     // Test sa
     sa(&stackA);
-    printf("After sa: \n");
+    printf("Stack A: \n");
     ft_node_print_list(stackA);
 
     // Test sb
     sb(&stackB);
-    printf("After sb: \n");
+    printf("Stack B: \n");
     ft_node_print_list(stackB);
 
     // Test ss
     ss(&stackA,&stackB);
-    printf("After sS: \n");
+    printf("Stack B: \n");
     ft_node_print_list(stackB);
+    printf("Stack A: \n");
     ft_node_print_list(stackA);
-
-    // Print the initial lists
-    printf("Initial stack A: \n");
-    ft_node_print_list(stackA);
-    printf("Initial stack B: \n");
-    ft_node_print_list(stackB);
 
     // Test rra
     rra(&stackA);
-    printf("After rra: \n");
+    printf("Stack A: \n");
     ft_node_print_list(stackA);
 
     // Test rrb
     rrb(&stackB);
-    printf("After rrb: \n");
+    printf("Stack B: \n");
     ft_node_print_list(stackB);
 
     // Test rrr
     rrr(&stackA, &stackB);
-    printf("After rrr: \n");
     printf("Stack A: \n");
     ft_node_print_list(stackA);
     printf("Stack B: \n");
@@ -111,20 +103,29 @@ void test_operations()
 
     // Test rotate
     ra(&stackA);
-    printf("After rotateA: \n");
     printf("Stack A: \n");
     ft_node_print_list(stackA);
     rb(&stackB);
-    printf("After rotateB: \n");
     printf("Stack B: \n");
     ft_node_print_list(stackB);
-    pusha(&stackA, &stackB);
-    pusha(&stackA, &stackB);
+
     pusha(&stackA, &stackB);
     printf("Stack A: \n");
     ft_node_print_list(stackA);
-    printf("After rotateB: \n");
     printf("Stack B: \n");
+    ft_node_print_list(stackB);
+
+    pusha(&stackA, &stackB);
+    printf("Stack A: \n");
+    ft_node_print_list(stackA);
+    printf("Stack B: \n");
+    ft_node_print_list(stackB);
+
+    pusha(&stackA, &stackB);
+    printf("Stack A: \n");
+    ft_node_print_list(stackA);
+    printf("Stack B: \n");
+    ft_node_print_list(stackB);
 }
 
 
