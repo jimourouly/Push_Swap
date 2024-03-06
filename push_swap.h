@@ -40,9 +40,9 @@ void    sa(t_node **stacka);
 void    sb(t_node **stackb);
 void    ss(t_node **stacka, t_node **stackb);
 void    rotate(t_node **stack);
-void    ra(t_node *stacka);
-void    rb(t_node *stackb);
-void    rr(t_node *stacka, t_node *stackb);
+void    ra(t_node **stacka);
+void    rb(t_node **stackb);
+void    rr(t_node **stacka, t_node **stackb);
 t_node  *getbottomnode(t_node *stack);
 
 #endif

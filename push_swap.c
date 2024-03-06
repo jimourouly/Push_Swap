@@ -22,8 +22,8 @@ void	printerror(void)
 
 void test_operations()
 {
-    int valuesA[] = {1, 2, 3};
-    int valuesB[] = {4, 5, 6};
+    int valuesA[] = {10, 20, 30};
+    int valuesB[] = {40, 50, 60};
     int lenA = sizeof(valuesA) / sizeof(valuesA[0]);
     int lenB = sizeof(valuesB) / sizeof(valuesB[0]);
     t_node *stackA = NULL;
@@ -110,16 +110,21 @@ void test_operations()
 
 
     // Test rotate
-    ra(stackA);
+    ra(&stackA);
     printf("After rotateA: \n");
     printf("Stack A: \n");
     ft_node_print_list(stackA);
-    rb(stackB);
+    rb(&stackB);
     printf("After rotateB: \n");
     printf("Stack B: \n");
     ft_node_print_list(stackB);
-
-
+    pusha(&stackA, &stackB);
+    pusha(&stackA, &stackB);
+    pusha(&stackA, &stackB);
+    printf("Stack A: \n");
+    ft_node_print_list(stackA);
+    printf("After rotateB: \n");
+    printf("Stack B: \n");
 }
 
 

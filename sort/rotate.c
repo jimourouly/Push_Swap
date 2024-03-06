@@ -17,6 +17,8 @@ void    rotate(t_node **stack)
     t_node *tmp;
     t_node *bottom;
 
+    if (!stack || !(*stack)->next)
+        return;
     tmp = *stack;
     *stack = (*stack)->next;
     bottom = getbottomnode(*stack);
@@ -25,21 +27,21 @@ void    rotate(t_node **stack)
 }
 
 //ascending all node in stack a
-void    ra(t_node *stacka)
+void    ra(t_node **stacka)
 {
-    rotate(&stacka);
+    rotate(stacka);
     ft_printf("\033[0;31m RA \033[0m\n");
 }
 
 //ascending all node in stack b
-void    rb(t_node *stackb)
+void    rb(t_node **stackb)
 {
-    rotate(&stackb);
+    rotate(stackb);
     ft_printf("\033[0;31m RB \033[0m\n");
 }
 
 //ascending all node in both stack
-void    rr(t_node *stacka, t_node *stackb)
+void    rr(t_node **stacka, t_node **stackb)
 {
     ra(stacka);
     rb(stackb);

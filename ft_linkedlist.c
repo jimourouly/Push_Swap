@@ -14,11 +14,14 @@
 
 t_node  *getbottomnode(t_node *stack)
 {
-   if (stack == NULL)
+    t_node  *tmp;
+    
+    if (!stack)
         return (NULL);
-    while(stack && stack->next)
-        stack = stack->next;
-    return (stack);
+    tmp = stack;
+    while (tmp->next)
+        tmp = tmp->next;
+    return (tmp);
 }
 
 t_node	*ft_node_create_new(int value)
