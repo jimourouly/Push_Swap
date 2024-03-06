@@ -28,11 +28,11 @@ int	main(int ac, char **av)
     t_node *head;
 
     head = NULL;
-
 	if (ac == 1)
 		return (0);
 	else
-	{
+    {
+        ft_printf("ac = %d", ac);
         inttab = tabint (ac, av);
         if (!inttab)
             printerror();
@@ -41,7 +41,6 @@ int	main(int ac, char **av)
             temp = ft_node_create_new(inttab[i]);
             ft_node_insert_to_end(&head, temp);
             i++;
-
         }
         ft_node_print_list(head);
 	}

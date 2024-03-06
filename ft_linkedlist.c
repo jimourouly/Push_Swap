@@ -42,6 +42,7 @@ void	ft_node_insert_to_end(t_node **head, t_node *newnode)
 		current->next = newnode;
 	}
 }
+
 void	ft_node_print_list(t_node *head)
 {
 	int		i;
@@ -51,9 +52,9 @@ void	ft_node_print_list(t_node *head)
 	temp = head;
 	while (temp != NULL)
 	{
-		printf("\033[0;32mLinkedlist [%d] value :%d:\033[0m\n",i, temp->value);
+		ft_printf("\033[0;32mLinkedlist [%d] value :%d:\033[0m\n", i, temp->value);
 		temp = temp->next;
 		i++;
 	}
-	printf("\n");
+	ft_printf("\n");
 }
