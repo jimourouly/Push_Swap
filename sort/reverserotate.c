@@ -49,7 +49,7 @@ void    rrb(t_node **stackb)
 //rra and rrb
 void    rrr(t_node **stacka, t_node **stackb)
 {
-    rra(stacka);
-    rrb(stackb);
+    rev(stacka);
+    rev(stackb);
     ft_printf("\033[0;31m RRR \033[0m\n");
 }
