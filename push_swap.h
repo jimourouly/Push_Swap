@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jim <jim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/06 18:08:43 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/03/20 11:21:47 by jim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,8 @@ void	rb(t_node **stackb);
 void	rr(t_node **stacka, t_node **stackb);
 t_node	*getbottomnode(t_node *stack);
 void	test_operations(void);
+void	tinysort(t_node *head);
+t_node	*smallestnode(t_node *head);
+t_node	*biggestnode(t_node *head);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jim <jim@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/06 18:13:09 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/03/20 11:24:08 by jim              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ int	main(int ac, char **av)
 			temp->next = NULL;
 			ft_node_insert_to_end(&head, temp);
 			i++;
+		}
+		if (ft_node_length(head) == 3)
+		{
+			ft_printf("TROIS\n");
+			tinysort(head);
 		}
 		ft_node_print_list(head);
 	}

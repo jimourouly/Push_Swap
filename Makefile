@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+         #
+#    By: jim <jim@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/02/23 14:25:45 by jroulet          ###   ########.fr        #
+#    Updated: 2024/03/20 10:56:35 by jim              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS = -Wall -Werror -Wextra
 CC = cc
-DEBUGGER = -g 
+DEBUGGER = -g
 SRCS = push_swap.c\
 	   totab.c\
 	   tester.c\
@@ -20,7 +20,8 @@ SRCS = push_swap.c\
 	   ./sort/push.c\
 	   ./sort/rotate.c\
 	   ./sort/swap.c\
-	   ./sort/reverserotate.c
+	   ./sort/reverserotate.c\
+	   ./sort/tinysort.c
 OBJS = $(SRCS:.c=.o)
 
 LIBDIR = ./libft
@@ -53,7 +54,7 @@ git: fclean
 	git commit -m "$t" -m "$b"
 	git push
 
-clean:	
+clean:
 	make -C $(LIBDIR) clean
 	rm -f $(OBJS)
 
