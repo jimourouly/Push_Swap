@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tester.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jroulet <marvin@42lausanne.ch>             +#+  +:+       +#+        */
+/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 17:17:21 by jroulet           #+#    #+#             */
-/*   Updated: 2024/02/24 17:17:25 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/03/25 16:45:20 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void run_tests(void)
 {
     int i;
-    
+
     char *single_arg_tests[] = {
         "8 7 6",
         "8 7 6 k",
@@ -46,9 +46,9 @@ void run_tests(void)
         {  "7", "k", "6", "8", NULL },
         {  "6", "7", "k", "8", NULL },
         {  "99999999999", "7", "9", "8", NULL },
-   
+
     };
-    
+
     int num_multi_arg_tests = sizeof(multi_arg_tests) / sizeof(multi_arg_tests[0]);
 
     for (int i = 0; i < num_multi_arg_tests; i++) {
@@ -172,4 +172,6 @@ void test_operations()
     ft_node_print_list(stackA);
     printf("Stack B: \n");
     ft_node_print_list(stackB);
+	freelink(stackA);
+	freelink(stackB);
 }

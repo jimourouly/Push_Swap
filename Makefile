@@ -6,7 +6,7 @@
 #    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/03/25 15:38:11 by jroulet          ###   ########.fr        #
+#    Updated: 2024/03/25 17:11:21 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ compile: all
 	$(CC) $(NAME) $(LIBDIR)/$(LIBNAME)
 
 debug: all
-	$(CC) -fsanitize=address $(DEBUGGER) $(NAME) $(LIBDIR)/$(LIBNAME)
+	$(CC) -fsanitize=address $(DEBUGGER) $(NAME) $(LIBDIR)/$(LIBNAME) -o test
 
 git: fclean
 	git add .
