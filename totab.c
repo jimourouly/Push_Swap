@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/25 15:16:30 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/03/25 16:31:57 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,12 +142,18 @@ int	*tabint(int ac, char **av, int *len)
 	if (ac == 2)
 	{
 		tab = ft_split(av[1], ' ');
+		i = 0;
 		while (tab[i])
 			i++;
 	}
 	else
 	{
 		tab = malloc(sizeof(char *) * (ac + 1));
+		if (!tab)
+		{
+			freetab(tab,ac);
+			return (NULL);
+		}
 		i = 0;
 		while (i < ac - 1)
 		{
@@ -161,6 +167,7 @@ int	*tabint(int ac, char **av, int *len)
 	if (tab == NULL)
 	{
 		ft_printf("\033[0;31mERROR MALLOC\033[0m\n");
+		freetab(tab,ac);
 		return (NULL);
 	}
 	if (checker(tab) == 0 || doublechecker(tab) == 0)
@@ -172,6 +179,7 @@ int	*tabint(int ac, char **av, int *len)
 	{
 		inttab = (tabtoint(tab));
 		*len = i;
+		freetab(tab, ac);
 		return (inttab);
 	}
 	freetab(tab, ac);

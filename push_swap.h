@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/25 15:06:45 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/03/25 16:35:30 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	tinysort(t_node *head);
 t_node	*smallestnode(t_node *head);
 t_node	*biggestnode(t_node *head);
 void	find_extreme_nodes(t_node *head, t_node **smallest, t_node **biggest);
-int	sortedlist(t_node *head);
+int		sortedlist(t_node *head);
+void	bigsort(t_node *head);
+void	freelink(t_node *head);
 
 #endif

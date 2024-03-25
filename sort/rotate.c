@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:47 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/06 18:10:01 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/03/25 15:27:59 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,3 @@ void	rr(t_node **stacka, t_node **stackb)
 	rb(stackb);
 	ft_printf("\033[0;31m RR - all up in A and B\033[0m\n");
 }
-

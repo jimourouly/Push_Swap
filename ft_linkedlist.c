@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:50:16 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/25 15:16:56 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/03/25 15:39:53 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ t_node	*ft_node_create_new(int value)
 		return (NULL);
 	result->value = value;
 	result->index = i;
-	//ft_printf("value %d,index %d\n", result->value, result->index);
 	i++;
 	result->next = NULL;
 	return (result);
@@ -83,7 +82,7 @@ void	ft_node_print_list(t_node *head)
 	temp = head;
 	while (temp != NULL)
 	{
-		ft_printf("\033[0;32mLinkedlist [%d] value :%d:\033[0m\n", i, temp->value);
+		ft_printf("\033[0;32mLinkedlist [%d] value :%d: index :%d: \033[0m\n", i, temp->value, temp->index);
 		temp = temp->next;
 		i++;
 	}

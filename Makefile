@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jim <jim@student.42.fr>                    +#+  +:+       +#+         #
+#    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/03/20 10:56:35 by jim              ###   ########.fr        #
+#    Updated: 2024/03/25 15:38:11 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS = push_swap.c\
 	   ./sort/rotate.c\
 	   ./sort/swap.c\
 	   ./sort/reverserotate.c\
-	   ./sort/tinysort.c
+	   ./sort/tinysort.c\
+	   ./sort/algorythme.c
 OBJS = $(SRCS:.c=.o)
 
 LIBDIR = ./libft
