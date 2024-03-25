@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jim <jim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/20 11:24:08 by jim              ###   ########.fr       */
+/*   Updated: 2024/03/25 14:48:58 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	main(int ac, char **av)
 	t_node	*head;
 	int		len;
 
+	len = 0;
 	head = NULL;
 	if (ac == 1)
 	{
@@ -39,7 +40,7 @@ int	main(int ac, char **av)
 		inttab = tabint (ac, av, &len);
 		if (!inttab)
 			printerror();
-        i = 0;
+		i = 0;
 		while (i < len)
 		{
 			temp = ft_node_create_new(inttab[i]);
@@ -49,9 +50,7 @@ int	main(int ac, char **av)
 		}
 		if (ft_node_length(head) == 3)
 		{
-			ft_printf("TROIS\n");
 			tinysort(head);
 		}
-		ft_node_print_list(head);
 	}
 }

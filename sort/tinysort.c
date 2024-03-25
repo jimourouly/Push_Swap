@@ -1,48 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tinysort.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
+/*   Updated: 2024/03/25 13:30:21 by jroulet          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
+
+void	find_extreme_nodes(t_node *head, t_node **smallest, t_node **biggest);
 
 void	tinysort(t_node *head)
 {
 	t_node	*current;
-	smallestnode(head);
-	biggestnode(head);
+	t_node	*smallest;
+	t_node	*biggest;
+
+	smallest = NULL;
+	biggest = NULL;
+	find_extreme_nodes(head, &smallest, &biggest);
 }
 
-t_node *smallestnode(t_node *head)
+void	find_extreme_nodes(t_node *head, t_node **smallest, t_node **biggest)
 {
-	t_node *current = head;
-	t_node *smallest= head;
+	t_node	*current;
 
-
+	current = head;
+	*smallest = head;
+	*biggest = head;
 	while (current != NULL)
 	{
-		if (current->value < smallest->value)
+		if (current->value < (*smallest)->value)
 		{
-			smallest = current;
+			*smallest = current;
 		}
-		current = current->next;
-		}
-		ft_printf("smallest value %d\n", smallest->value);
-	return smallest;
-
-}
-
-
-t_node *biggestnode(t_node *head)
-{
-	t_node *current;
-	t_node *biggest;
-
-	biggest = head;
-	current = head->next;
-
-	while (current != NULL)
-	{
-		if (current->value > biggest->value)
+		if (current->value > (*biggest)->value)
 		{
-			biggest = current;
+			*biggest = current;
 		}
 		current = current->next;
 	}
-	ft_printf("biggest value %d\n", biggest->value);
-	return biggest;
+	ft_printf("Smallest value: %d\n", (*smallest)->value);
+	ft_printf("Biggest value: %d\n", (*biggest)->value);
 }

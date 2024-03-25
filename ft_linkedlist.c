@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_linkedlist.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jim <jim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:50:16 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/20 10:37:39 by jim              ###   ########.fr       */
+/*   Updated: 2024/03/25 14:48:23 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_node	*ft_node_create_new(int value)
 	if (!result)
 		return (NULL);
 	result->value = value;
+	ft_printf("new node created with value %d\n", result->value);
 	result->next = NULL;
 	return (result);
 }
@@ -85,5 +86,3 @@ void	ft_node_print_list(t_node *head)
 	}
 	ft_printf("\n");
 }
-
-
