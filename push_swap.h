@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jim <jim@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/20 11:21:47 by jim              ###   ########.fr       */
+/*   Updated: 2024/03/25 15:06:45 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ void	test_operations(void);
 void	tinysort(t_node *head);
 t_node	*smallestnode(t_node *head);
 t_node	*biggestnode(t_node *head);
+void	find_extreme_nodes(t_node *head, t_node **smallest, t_node **biggest);
+int	sortedlist(t_node *head);
 
 #endif

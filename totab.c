@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/25 14:47:52 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/03/25 15:16:30 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,10 +74,10 @@ int	doublechecker(char **tab)
 		j = len - 1;
 		while (j > i)
 		{
-			ft_printf("\033[0;32mChecking double tab[%d] %d and tab[%d] %d\033[0m\n", i , ft_atoi(tab[i]), j, ft_atoi(tab[j]));
+			//ft_printf("\033[0;32mChecking double tab[%d] %d and tab[%d] %d\033[0m\n", i , ft_atoi(tab[i]), j, ft_atoi(tab[j]));
 			if (ft_atoi(tab[i]) == ft_atoi(tab[j]))
 			{
-				ft_printf("\033[0;31mtab[%d] :%d: = tab[%d] :%d:\033[0m\n", i, ft_atoi(tab[i]), j, ft_atoi(tab[j]));
+				//ft_printf("\033[0;31mtab[%d] :%d: = tab[%d] :%d:\033[0m\n", i, ft_atoi(tab[i]), j, ft_atoi(tab[j]));
 				ft_printf("\033[0;31mERROR DOUBLE\033[0m\n");
 				return (0);
 			}
@@ -98,14 +98,14 @@ int	checker(char **tab)
 	i = 0;
 	while (tab[i])
 	{
-		ft_printf("\033[0;32mchecking chartab[%d] = %s\033[0m\n", i, tab[i]);
+		//ft_printf("\033[0;32mchecking chartab[%d] = %s\033[0m\n", i, tab[i]);
 		j = 0;
 		while (tab[i][j])
 		{
 			if (tab[i][j] == '-' || tab[i][j] == '+')
 			{
 				j++;
-				ft_printf("\033[0;32mchecking chartab[%d][%d] = %c\033[0m\n", i, j, tab[i][j]);
+				//ft_printf("\033[0;32mchecking chartab[%d][%d] = %c\033[0m\n", i, j, tab[i][j]);
 			}
 			if (!ft_isdigit(tab[i][j]))
 			{
@@ -153,7 +153,7 @@ int	*tabint(int ac, char **av, int *len)
 		{
 			tab[i] = malloc(sizeof(char) * (ft_strlen(av[i + 1]) + 1));
 			ft_strcpy(tab[i], av[i + 1]);
-			ft_printf("\033[0;32mcopy av[%d] = %s to tab[%d] = %s\033[0m\n", i + 1, av[i + 1], i, tab[i]);
+			//ft_printf("\033[0;32mcopy av[%d] = %s to tab[%d] = %s\033[0m\n", i + 1, av[i + 1], i, tab[i]);
 			i++;
 		}
 		tab[i] = NULL;

@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:50:16 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/25 14:48:23 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/03/25 15:16:56 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,16 @@ t_node	*getbottomnode(t_node *stack)
 
 t_node	*ft_node_create_new(int value)
 {
-	t_node	*result;
+	t_node		*result;
+	static int	i;
 
 	result = malloc(sizeof(t_node));
 	if (!result)
 		return (NULL);
 	result->value = value;
-	ft_printf("new node created with value %d\n", result->value);
+	result->index = i;
+	//ft_printf("value %d,index %d\n", result->value, result->index);
+	i++;
 	result->next = NULL;
 	return (result);
 }
