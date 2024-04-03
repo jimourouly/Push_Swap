@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/25 15:44:31 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/03 10:11:48 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,3 +62,5 @@ int	sortedlist(t_node *head)
 	}
 	return (sorted);
 }
+
+void lesstinysort 
