@@ -6,22 +6,22 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:47 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/25 15:27:59 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/03 14:09:34 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	rotate(t_node **stack)
+void	rotate(t_node **head)
 {
 	t_node	*tmp;
 	t_node	*bottom;
 
-	if (!stack || !(*stack)->next)
+	if (!head || !(*head)->next)
 		return ;
-	tmp = *stack;
-	*stack = (*stack)->next;
-	bottom = getbottomnode(*stack);
+	tmp = *head;
+	*head = (*head)->next;
+	bottom = getbottomnode(*head);
 	tmp->next = NULL;
 	bottom->next = tmp;
 }
