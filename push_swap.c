@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/25 17:17:29 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/03 11:36:20 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(int ac, char **av)
 		ft_printf("listsorted\n");
 	else
 	{
-		if (ft_node_length(head) == 3)
+		if (ft_node_length(head) <= 3)
 			tinysort(head);
 		else
 		{

@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/25 17:20:55 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/03 13:59:38 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 void	bigsort(t_node *head)
 {
 	ft_printf("bigsort\n");
+	findmaxnode(head);
+	findminnode(head);
 	ft_node_print_list(head);
 }
 
@@ -29,3 +31,4 @@ void	freelink(t_node *head)
 		free(temp);
 	}
 }
+

@@ -6,11 +6,16 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/03 10:11:48 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/03 14:05:21 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	simplifier(t_node *head)
+{
+
+}
 
 void	tinysort(t_node *head)
 {
@@ -21,30 +26,46 @@ void	tinysort(t_node *head)
 	ft_printf("tinysort\n");
 	smallest = NULL;
 	biggest = NULL;
-	find_extreme_nodes(head, &smallest, &biggest);
+	findminnode(head);
+	findmaxnode(head);
+	ft_node_print_list(head);
 }
 
-void	find_extreme_nodes(t_node *head, t_node **smallest, t_node **biggest)
+
+t_node	*findmaxnode(t_node *head)
 {
 	t_node	*current;
+	t_node	*biggest;
 
+	ft_printf("findmax\n");
 	current = head;
-	*smallest = head;
-	*biggest = head;
-	while (current != NULL)
+	biggest = head;
+	while (current)
 	{
-		if (current->value < (*smallest)->value)
-		{
-			*smallest = current;
-		}
-		if (current->value > (*biggest)->value)
-		{
-			*biggest = current;
-		}
+		if (current->value > biggest->value)
+			biggest = current;
 		current = current->next;
 	}
-	ft_printf("Smallest value: %d\n", (*smallest)->value);
-	ft_printf("Biggest value: %d\n", (*biggest)->value);
+	ft_printf("max node = :%d:\n\n", biggest->value);
+	return (biggest);
+}
+
+t_node	*findminnode(t_node *head)
+{
+	t_node	*current;
+	t_node	*smallest;
+
+	ft_printf("findmin\n");
+	current = head;
+	smallest = head;
+	while (current)
+	{
+		if (current->value < smallest->value)
+			smallest = current;
+		current = current->next;
+	}
+	ft_printf("min node = :%d:\n\n", smallest->value);
+	return (smallest);
 }
 
 int	sortedlist(t_node *head)
@@ -62,5 +83,3 @@ int	sortedlist(t_node *head)
 	}
 	return (sorted);
 }
-
-void lesstinysort 
