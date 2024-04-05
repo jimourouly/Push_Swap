@@ -6,23 +6,49 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/03 15:00:13 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/05 13:04:02 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	simplifier(t_node *head)
+// run through  the linked list, intialize a int to save the smallest
+
+t_node *findnodebyvalue(t_node *head, int value)
+{
+	t_node *current = head;
+
+	while (current != NULL)
+	{
+		if (current->value == value)
+			return (current);
+		current = current->next;
+	}
+	return (NULL);
+}
+
+void simplifier(t_node *head)
 {
 	t_node	*current;
-	t_node	*temp;
+	int		min;
+	int		max;
+	int		counter;
 	int		index;
 
-	index = 0;
-	findminnode(head, &index);
-	findmaxnode(head);
-	ft_printf("simpl\n\n");
-	current = head;
+	min = findminnode(head)->value;
+	max = findmaxnode(head)->value;
+	counter = min;
+	index = 1;
+	while (counter <= max)
+	{
+		current = findnodebyvalue(head, counter);
+		if (current != NULL)
+		{
+			current->index = index;
+			index++;
+		}
+		counter++;
+	}
 }
 
 void	tinysort(t_node *head)
@@ -37,7 +63,6 @@ void	tinysort(t_node *head)
 	simplifier(head);
 	ft_node_print_list(head);
 }
-
 
 t_node	*findmaxnode(t_node *head)
 {
@@ -58,7 +83,7 @@ t_node	*findmaxnode(t_node *head)
 	return (biggest);
 }
 
-t_node	*findminnode(t_node *head, int *index)
+t_node	*findminnode(t_node *head)
 {
 	t_node	*current;
 	t_node	*smallest;
@@ -71,8 +96,6 @@ t_node	*findminnode(t_node *head, int *index)
 		if (current->value < smallest->value && current->value2 == 0)
 		{
 			smallest = current;
-			smallest->index = *index;
-			*index++;
 		}
 		current = current->next;
 	}
