@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:50:16 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/03 12:35:15 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/05 14:05:19 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	ft_node_print_list(t_node *head)
 	temp = head;
 	while (temp != NULL)
 	{
-		ft_printf("\033[0;32mLinkedlist [%d] value :%d: value 2 :%d: index :%d: \033[0m\n", i, temp->value, temp->value2, temp->index);
+		ft_printf("\033[0;32mLinkedlist [%d] index :%d: value :%d: \033[0m\n", i, temp->index, temp->value);
 		temp = temp->next;
 		i++;
 	}
