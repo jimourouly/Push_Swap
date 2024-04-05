@@ -6,7 +6,7 @@
 #    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/03/25 17:11:21 by jroulet          ###   ########.fr        #
+#    Updated: 2024/04/05 17:09:28 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS = push_swap.c\
 	   ./sort/swap.c\
 	   ./sort/reverserotate.c\
 	   ./sort/tinysort.c\
-	   ./sort/algorythme.c
+	   ./algorythme.c\
+	   ./printorder.c
 OBJS = $(SRCS:.c=.o)
 
 LIBDIR = ./libft

@@ -6,13 +6,12 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/05 14:11:23 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/05 17:04:37 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	calcul
 
 t_node	*findnodebyvalue(t_node *head, int value)
 {
@@ -62,6 +61,7 @@ void	tinysort(t_node *head)
 	biggest = NULL;
 	simplifier(head);
 	ft_node_print_list(head);
+	print_list_by_index(head);
 }
 
 t_node	*findmaxnode(t_node *head)

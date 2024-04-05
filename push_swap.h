@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/05 13:34:37 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/05 16:59:05 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,10 @@ t_node	*findminnode(t_node *head);
 t_node	*findmaxnode(t_node *head);
 void	simplifier(t_node *head);
 t_node	*findnodebyvalue(t_node *head, int value);
+t_node	*findnodebyindex(t_node *head, int index);
+void	print_list_by_index(t_node *head);
+
+int findmaxindex(t_node *head);
+int findminindex(t_node *head);
 
 #endif
