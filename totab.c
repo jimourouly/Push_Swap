@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/03 10:07:51 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/10 15:09:30 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	freetab(char **tab, int ac)
 	{
 		while (tab[i])
 		{
-			ft_printf("\033[0;32mfree tab[%d] = %s\033[0m\n", i, tab[i]);
+			//ft_printf("\033[0;32mfree tab[%d] = %s\033[0m\n", i, tab[i]);
 			free(tab[i]);
 			i++;
 		}
@@ -50,7 +50,7 @@ void	freetab(char **tab, int ac)
 	{
 		while (i < ac - 1)
 		{
-			ft_printf("\033[0;32mfree tab[%d] = %s\033[0m\n", i, tab[i]);
+			//ft_printf("\033[0;32mfree tab[%d] = %s\033[0m\n", i, tab[i]);
 			free(tab[i]);
 			i++;
 		}

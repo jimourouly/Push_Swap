@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:33 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/06 18:07:42 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/10 16:05:47 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,18 @@ void	push(t_node **src, t_node **dest)
 {
 	t_node	*tmp;
 
-	if (*src == NULL)
+	if (src == NULL || *src == NULL)
 		return ;
 	tmp = (*src)->next;
-	(*src)->next = *dest;
-	*dest = *src;
+
+	if (dest != NULL)
+	{
+		(*src)->next = *dest;
+		*dest = *src;
+	}
+	else
+	{
+		(*src)->next = NULL;
+	}
 	*src = tmp;
 }

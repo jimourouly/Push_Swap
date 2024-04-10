@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/05 16:59:05 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/10 15:57:22 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,11 @@ t_node	*findnodebyvalue(t_node *head, int value);
 t_node	*findnodebyindex(t_node *head, int index);
 void	print_list_by_index(t_node *head);
 
-int findmaxindex(t_node *head);
-int findminindex(t_node *head);
+int		findmaxindex(t_node *head);
+int		findminindex(t_node *head);
+void	radix_sort(t_node **stacka, t_node **stackb);
+void	distribute_elements(t_node **stacka, t_node **stackb, int exp);
+void	collect_elements(t_node **stacka, t_node **stackb);
+
 
 #endif
