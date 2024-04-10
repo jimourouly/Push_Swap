@@ -6,11 +6,12 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/10 17:10:02 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/10 18:21:45 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+#include "math.h"
 
 
 void	getmaxbit(t_node *head)
@@ -18,6 +19,7 @@ void	getmaxbit(t_node *head)
 	t_node	*current;
 	int		maxindex;
 	char	*indexchr;
+	int		log;
 
 	current = head;
 	maxindex = findmaxindex(head);
@@ -25,7 +27,9 @@ void	getmaxbit(t_node *head)
 
 	ft_printf("itoa maxindex = %s \n\n", ft_itoa(maxindex));
 
-
+	log = ft_log(maxindex, 2);
+	ft_printf("log%d of %d is %d \n", 2, maxindex, log);
+	ft_printf("nbr of bit of %d is %d\n", maxindex, (ft_log(maxindex, 2)+1));
 
 }
 
