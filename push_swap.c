@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/03 11:36:20 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/24 17:33:29 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	main(int ac, char **av)
 	head = NULL;
 	if (ac == 1)
 	{
-		test_operations();
 		return (0);
 	}
 	else

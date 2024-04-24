@@ -6,7 +6,7 @@
 #    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/04/24 13:28:21 by jroulet          ###   ########.fr        #
+#    Updated: 2024/04/24 17:33:07 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ CC = cc
 DEBUGGER = -g
 SRCS = push_swap.c\
 	   totab.c\
-	   tester.c\
 	   ft_linkedlist.c\
 	   ./sort/push.c\
 	   ./sort/rotate.c\

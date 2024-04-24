@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:50:16 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 17:22:57 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/24 17:49:45 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ft_node_print_list(t_node *head, char stack)
 	{
 		while (temp != NULL)
 		{
-			ft_printf("\033[0;34mstack%c [%d] index :%d: value :%d: indexbin :%d:\033[0m\n",stack, i, temp->index, temp->value, ft_inttobin(temp->index));
+			ft_printf("\033[0;34mstack%c [%d] value :%d: index :%d: indexbin :%d:\033[0m\n",stack, i, temp->value, temp->index, ft_inttobin(temp->index));
 			temp = temp->next;
 			i++;
 		}
@@ -93,7 +93,7 @@ void	ft_node_print_list(t_node *head, char stack)
 	{
 		while (temp != NULL)
 		{
-			ft_printf("\033[0;32mstack%c [%d] index :%d: value :%d: indexbin :%d: \033[0m\n",stack, i, temp->index, temp->value, ft_inttobin(temp->index));
+			ft_printf("\033[0;32mstack%c [%d] value :%d: index :%d: indexbin :%d: \033[0m\n",stack, i, temp->value, temp->index, ft_inttobin(temp->index));
 			temp = temp->next;
 			i++;
 		}
