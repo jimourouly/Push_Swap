@@ -6,52 +6,98 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 18:35:12 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/24 19:39:47 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "math.h"
 
-void	radix(t_node *head,t_node *stackb)
+int convert_to_binary(int num)
 {
-	t_node	*current;
-	t_node	*tempb;
-	int		maxindex;
-	int		bit;
-	int		num;
+	int	binary;
+	int	remainder;
+	int	i;
 
-	tempb = stackb;
-
-
-	maxindex = findmaxindex(head);
-	bit = (ft_log(maxindex, 2) + 1);
-	ft_printf("bit = %d\n", bit);
-	current = head;
-	while (current)
+	binary = 0;
+	remainder = 1;
+	i = 1;
+	while (num != 0)
 	{
-		num = current->index;
-		ft_printf("if = %d\n", ((num >> (bit-1)) & 1));
-		if (((num >> bit) & 1) == 1)
+		remainder = num % 2;
+		num /= 2;
+		binary += remainder * i;
+		i *= 10;
+	}
+
+	return (binary);
+}
+
+void print_stack(t_node *head_a, t_node *head_b)
+{
+	t_node	*current_a;
+	t_node	*current_b;
+
+	current_a = head_a;
+	current_b = head_b;
+	printf("stacka | stackb\n");
+	while (current_a || current_b)
+	{
+		if (current_a)
 		{
-			ft_printf("RA");
-			ra(&head);
+			printf("%04d | ", convert_to_binary(current_a->index));
+			current_a = current_a->next;
 		}
 		else
 		{
-			ft_printf("PUSHB");
-			pushb(&head, &stackb);
+			printf("     | ");
+		}
+
+		if (current_b)
+		{
+			printf("%04d\n", convert_to_binary(current_b->index));
+			current_b = current_b->next;
+		}
+		else
+		{
+			printf("\n");
+		}
+	}
+}
+
+void	radix(t_node *head,t_node *stackb)
+{
+	t_node	*current;
+	int		maxindex;
+	int		bit;
+	int		num;
+	int		i;
+
+	i = 0;
+	maxindex = findmaxindex(head);
+	bit = (ft_log(maxindex, 2) + 1);
+
+	while (i < bit)
+	{
+		current = head;
+		while (current)
+		{
+			num = current->index;
+			if (((num >> i) & 1) == 1)
+				ra(&head);
+			else
+				pushb(&head, &stackb);
+			current = current->next;
 
 		}
-		current = current->next;
-	}
-	ft_node_print_list(head, 'a');
-	ft_node_print_list(stackb, 'b');
+		while (stackb)
+		{
+			pusha(&head, &stackb);
+		}
 
-	if (!sortedlist(head))
-	{
-		radix(head, stackb);
+		i++;
 	}
+
 }
 
 
@@ -70,6 +116,7 @@ void	getmaxbit(t_node *head)
 	base = ft_log(maxindex, 2) + 1;
 	ft_node_print_list(head, 'a');
 	ft_node_print_list(stackb, 'b');
+	print_stack(head, stackb);
 	radix(head, stackb);
 }
 

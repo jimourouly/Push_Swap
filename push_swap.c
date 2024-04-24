@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 17:33:29 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/24 19:05:45 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,5 @@ int	main(int ac, char **av)
 		}
 	}
 	free(inttab);
-	while (inttab[i])
-	{
-		ft_printf(" inttab [%d]= %d\n", i, inttab[i]);
-		i++;
-	}
 	freelink(head);
 }
