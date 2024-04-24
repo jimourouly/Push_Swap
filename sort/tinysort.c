@@ -6,31 +6,49 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/10 18:21:45 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/24 16:04:23 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "math.h"
 
+void	radix(t_node *head)
+{
+	t_node	*current;
+	t_node	*stackb;
+	int		maxindex;
+	int		bit;
+	int		num;
+
+	maxindex = findmaxindex(head);
+	bit = (ft_log(maxindex, 2) + 1);
+	current = head;
+	while (current)
+	{
+		num = current->index;
+		if (((num >> bit) & 1) == 1)
+			ra(&head);
+		else
+			pushb(&head, &stackb);
+		current = current->next;
+	}
+	ft_node_print_list(head);
+}
+
 
 void	getmaxbit(t_node *head)
 {
 	t_node	*current;
 	int		maxindex;
-	char	*indexchr;
 	int		log;
+	int		base;
 
 	current = head;
 	maxindex = findmaxindex(head);
-	ft_printf("max index = %d\n\n", maxindex);
-
-	ft_printf("itoa maxindex = %s \n\n", ft_itoa(maxindex));
-
 	log = ft_log(maxindex, 2);
-	ft_printf("log%d of %d is %d \n", 2, maxindex, log);
-	ft_printf("nbr of bit of %d is %d\n", maxindex, (ft_log(maxindex, 2)+1));
-
+	base = ft_log(maxindex, 2) + 1;
+	radix(head);
 }
 
 
