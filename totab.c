@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/10 15:09:30 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/24 17:25:35 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	freetab(char **tab, int ac)
 			i++;
 		}
 	}
-	ft_printf("\033[0;32mfree tab\033[0m\n");
+	//ft_printf("\033[0;32mfree tab\033[0m\n");
 	free(tab);
 }
 

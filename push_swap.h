@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/10 15:57:22 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/24 16:56:35 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	freetab(char **tab, int ac);
 void	run_tests(void);
 t_node	*ft_node_create_new(int value);
 void	ft_node_insert_to_end(t_node **head, t_node *newnode);
-void	ft_node_print_list(t_node *head);
+void	ft_node_print_list(t_node *head, char stack);
 int		ft_node_length(t_node *head);
 
 void	pusha(t_node **stacka, t_node **stackb);
