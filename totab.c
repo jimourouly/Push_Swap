@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 17:25:35 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/24 18:14:58 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	freetab(char **tab, int ac)
 	{
 		while (tab[i])
 		{
-			//ft_printf("\033[0;32mfree tab[%d] = %s\033[0m\n", i, tab[i]);
 			free(tab[i]);
 			i++;
 		}
@@ -50,12 +49,10 @@ void	freetab(char **tab, int ac)
 	{
 		while (i < ac - 1)
 		{
-			//ft_printf("\033[0;32mfree tab[%d] = %s\033[0m\n", i, tab[i]);
 			free(tab[i]);
 			i++;
 		}
 	}
-	//ft_printf("\033[0;32mfree tab\033[0m\n");
 	free(tab);
 }
 
@@ -134,7 +131,7 @@ int	*tabint(int ac, char **av, int *len)
 		tab = malloc(sizeof(char *) * (ac + 1));
 		if (!tab)
 		{
-			freetab(tab,ac);
+			freetab(tab, ac);
 			return (NULL);
 		}
 		i = 0;
@@ -148,7 +145,7 @@ int	*tabint(int ac, char **av, int *len)
 	}
 	if (tab == NULL)
 	{
-		freetab(tab,ac);
+		freetab(tab, ac);
 		return (NULL);
 	}
 	if (checker(tab) == 0 || doublechecker(tab) == 0)

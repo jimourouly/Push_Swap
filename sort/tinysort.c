@@ -6,32 +6,43 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 17:04:36 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/04/24 18:35:12 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "math.h"
 
-void	radix(t_node *head)
+void	radix(t_node *head,t_node *stackb)
 {
 	t_node	*current;
-	t_node	*stackb;
+	t_node	*tempb;
 	int		maxindex;
 	int		bit;
 	int		num;
 
+	tempb = stackb;
+
+
 	maxindex = findmaxindex(head);
-	stackb = NULL;
 	bit = (ft_log(maxindex, 2) + 1);
+	ft_printf("bit = %d\n", bit);
 	current = head;
 	while (current)
 	{
 		num = current->index;
+		ft_printf("if = %d\n", ((num >> (bit-1)) & 1));
 		if (((num >> bit) & 1) == 1)
-			ft_printf("ra\n");
+		{
+			ft_printf("RA");
+			ra(&head);
+		}
 		else
+		{
+			ft_printf("PUSHB");
 			pushb(&head, &stackb);
+
+		}
 		current = current->next;
 	}
 	ft_node_print_list(head, 'a');
@@ -39,7 +50,7 @@ void	radix(t_node *head)
 
 	if (!sortedlist(head))
 	{
-		radix(head);
+		radix(head, stackb);
 	}
 }
 
@@ -47,15 +58,19 @@ void	radix(t_node *head)
 void	getmaxbit(t_node *head)
 {
 	t_node	*current;
+	t_node	*stackb;
 	int		maxindex;
 	int		log;
 	int		base;
 
+	stackb = NULL;
 	current = head;
 	maxindex = findmaxindex(head);
 	log = ft_log(maxindex, 2);
 	base = ft_log(maxindex, 2) + 1;
-	radix(head);
+	ft_node_print_list(head, 'a');
+	ft_node_print_list(stackb, 'b');
+	radix(head, stackb);
 }
 
 
@@ -107,9 +122,6 @@ void	tinysort(t_node *head)
 	smallest = NULL;
 	biggest = NULL;
 	simplifier(head);
-	//ft_node_print_list(head,'a');
-	print_list_by_index(head);
-	//ft_node_print_list(head,'a');
 	getmaxbit(head);
 }
 
