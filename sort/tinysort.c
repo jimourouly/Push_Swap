@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 19:39:47 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/06 14:11:34 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int convert_to_binary(int num)
 		binary += remainder * i;
 		i *= 10;
 	}
-
 	return (binary);
 }
 
@@ -52,7 +51,6 @@ void print_stack(t_node *head_a, t_node *head_b)
 		{
 			printf("     | ");
 		}
-
 		if (current_b)
 		{
 			printf("%04d\n", convert_to_binary(current_b->index));
@@ -65,41 +63,36 @@ void print_stack(t_node *head_a, t_node *head_b)
 	}
 }
 
-void	radix(t_node *head,t_node *stackb)
+void	radix(t_node **head, t_node **stackb)
 {
 	t_node	*current;
 	int		maxindex;
 	int		bit;
-	int		num;
 	int		i;
+	t_node	*next;
 
-	i = 0;
-	maxindex = findmaxindex(head);
+	maxindex = findmaxindex(*head);
 	bit = (ft_log(maxindex, 2) + 1);
-
-	while (i < bit)
+	i = 0;
+	while (i <= bit)
 	{
-		current = head;
+		current = *head;
 		while (current)
 		{
-			num = current->index;
-			if (((num >> i) & 1) == 1)
-				ra(&head);
+			next = current->next;
+			if (((current->index >> i) & 1) == 1)
+				ra(head, stackb);
 			else
-				pushb(&head, &stackb);
-			current = current->next;
-
+				pushb(head, stackb);
+			current = next;
 		}
-		while (stackb)
+		while (*stackb)
 		{
-			pusha(&head, &stackb);
+			pusha(head, stackb);
 		}
-
 		i++;
 	}
-
 }
-
 
 void	getmaxbit(t_node *head)
 {
@@ -116,10 +109,9 @@ void	getmaxbit(t_node *head)
 	base = ft_log(maxindex, 2) + 1;
 	ft_node_print_list(head, 'a');
 	ft_node_print_list(stackb, 'b');
-	print_stack(head, stackb);
-	radix(head, stackb);
+	//print_stack(head, stackb);
+	radix(&head, &stackb);
 }
-
 
 t_node	*findnodebyvalue(t_node *head, int value)
 {
@@ -164,7 +156,6 @@ void	tinysort(t_node *head)
 	t_node	*current;
 	t_node	*smallest;
 	t_node	*biggest;
-	t_node	*stackb;
 
 	smallest = NULL;
 	biggest = NULL;
@@ -206,7 +197,7 @@ t_node	*findminnode(t_node *head)
 	return (smallest);
 }
 
-int	sortedlist(t_node *head)
+int sortedlist(t_node *head)
 {
 	t_node	*current;
 	int		sorted;
@@ -216,8 +207,9 @@ int	sortedlist(t_node *head)
 	while (current && current->next != NULL)
 	{
 		if (current->value > current->next->value)
-			sorted = 0;
+			return 0;
 		current = current->next;
 	}
-	return (sorted);
+	return sorted;
 }
+

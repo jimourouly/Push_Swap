@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 17:59:07 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/06 14:10:07 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	sa(t_node **stacka);
 void	sb(t_node **stackb);
 void	ss(t_node **stacka, t_node **stackb);
 void	rotate(t_node **stack);
-void	ra(t_node **stacka);
+void	ra(t_node **stacka,t_node **stackb);
 void	rb(t_node **stackb);
 void	rr(t_node **stacka, t_node **stackb);
 t_node	*getbottomnode(t_node *stack);
@@ -62,6 +62,5 @@ int		findminindex(t_node *head);
 void	radix_sort(t_node **stacka, t_node **stackb);
 void	distribute_elements(t_node **stacka, t_node **stackb, int exp);
 void	collect_elements(t_node **stacka, t_node **stackb);
-
-
+int		convert_to_binary(int num);
 #endif

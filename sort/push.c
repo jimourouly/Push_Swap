@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:33 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 16:59:46 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/06 13:46:37 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	pusha(t_node **stacka, t_node **stackb)
 {
 	push(stackb, stacka);
 	ft_printf("\033[0;31m PA - Top 1 B to A \033[0m\n");
+	ft_printf("\033[0;31m PB - Top 1 A to B\033[0m\n");
+	ft_node_print_list(*stacka, 'a');
 }
 
 //push top one from a to b
@@ -24,6 +26,7 @@ void	pushb(t_node **stacka, t_node **stackb)
 {
 	push(stacka, stackb);
 	ft_printf("\033[0;31m PB - Top 1 A to B\033[0m\n");
+	ft_node_print_list(*stackb, 'b');
 }
 
 void	push(t_node **src, t_node **dest)
@@ -33,7 +36,6 @@ void	push(t_node **src, t_node **dest)
 	if (src == NULL || *src == NULL)
 		return ;
 	tmp = (*src)->next;
-
 	if (dest != NULL)
 	{
 		(*src)->next = *dest;
