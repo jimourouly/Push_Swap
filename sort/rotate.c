@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:47 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/06 14:11:57 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/20 12:38:01 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ void	rotate(t_node **head)
 void	ra(t_node **stacka, t_node **stackb)
 {
 	rotate(stacka);
-	ft_printf("\033[0;31m RA - all up in A\033[0m\n");
-	ft_node_print_list(*stacka, 'a');
-	ft_node_print_list(*stackb, 'b');
+	//ft_printf("\033[0;31m RA - all up in A\033[0m\n");
+	ft_printf("ra\n");
+	//ft_node_print_list(*stacka, 'a');
+	//ft_node_print_list(*stackb, 'b');
 }
 
 //ascending all node in stack b

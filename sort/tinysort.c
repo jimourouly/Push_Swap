@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/06 14:11:34 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/20 12:45:35 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,26 +65,24 @@ void print_stack(t_node *head_a, t_node *head_b)
 
 void	radix(t_node **head, t_node **stackb)
 {
-	t_node	*current;
 	int		maxindex;
 	int		bit;
 	int		i;
-	t_node	*next;
 
 	maxindex = findmaxindex(*head);
 	bit = (ft_log(maxindex, 2) + 1);
 	i = 0;
-	while (i <= bit)
+	while (i < bit)
 	{
-		current = *head;
-		while (current)
+		int size = ft_node_length(*head);
+		int j = 0;
+		while (j < size)
 		{
-			next = current->next;
-			if (((current->index >> i) & 1) == 1)
+			if ((((*head)->index >> i) & 1) == 1)
 				ra(head, stackb);
 			else
 				pushb(head, stackb);
-			current = next;
+			j++;
 		}
 		while (*stackb)
 		{
