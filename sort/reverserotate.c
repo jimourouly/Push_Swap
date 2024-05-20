@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:40 by jroulet           #+#    #+#             */
-/*   Updated: 2024/03/06 18:11:00 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/20 17:45:14 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,41 +15,50 @@
 void	rev(t_node **stack)
 {
 	t_node	*last;
-	t_node	*justbeforethelast;
+	t_node	*prev;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
 	last = *stack;
-	justbeforethelast = NULL;
-	while (last->next != NULL)
+	prev = NULL;
+	while (last->next)
 	{
-		justbeforethelast = last;
+		prev = last;
 		last = last->next;
 	}
-
-	justbeforethelast->next = NULL;
 	last->next = *stack;
 	*stack = last;
+	if (prev)
+		prev->next = NULL;
 }
 
 //descend all node from a
 void	rra(t_node **stacka)
 {
+	ft_printf("rra\n");
+	ft_node_print_list(*stacka, 'a');
 	rev(stacka);
-	ft_printf("\033[0;31m RRA - all down on A\033[0m\n");
+
+	ft_printf("rra res\n");
+	ft_node_print_list(*stacka, 'a');
 }
 
 //descend all node from b
 void	rrb(t_node **stackb)
 {
+
+	ft_printf("rrb\n");
 	rev(stackb);
-	ft_printf("\033[0;31m RRB - all down on B\033[0m\n");
+	ft_node_print_list(*stackb, 'b');
 }
 
 //rra and rrb
 void	rrr(t_node **stacka, t_node **stackb)
 {
+	ft_printf("rrr\n");
 	rev(stacka);
 	rev(stackb);
-	ft_printf("\033[0;31m RRR - all down on A and B \033[0m\n");
+
+	ft_node_print_list(*stacka, 'a');
+	ft_node_print_list(*stackb, 'b');
 }

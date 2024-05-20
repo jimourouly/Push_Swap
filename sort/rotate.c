@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:47 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/20 12:38:01 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/20 16:45:49 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,35 @@ void	rotate(t_node **head)
 	bottom->next = tmp;
 }
 
-//ascending all node in stack a
-void	ra(t_node **stacka, t_node **stackb)
+//ascending all nodes in stack a
+void	ra(t_node **stacka)
 {
 	rotate(stacka);
-	//ft_printf("\033[0;31m RA - all up in A\033[0m\n");
 	ft_printf("ra\n");
-	//ft_node_print_list(*stacka, 'a');
-	//ft_node_print_list(*stackb, 'b');
+	ft_node_print_list(*stacka, 'a');
+
 }
 
-//ascending all node in stack b
+//ascending all nodes in stack b
 void	rb(t_node **stackb)
 {
 	rotate(stackb);
-	ft_printf("\033[0;31m RB - all up in B\033[0m\n");
+	ft_printf("rb\n");
+	ft_node_print_list(*stackb, 'b');
 }
 
-//ascending all node in both stack
+//ascending all nodes in both stack
 void	rr(t_node **stacka, t_node **stackb)
 {
-	ra(stacka, stackb);
+	ra(stacka);
 	rb(stackb);
-	ft_printf("\033[0;31m RR - all up in A and B\033[0m\n");
+	ft_printf("rr\n");
 }
+/*
+30 20 10 SA RRA
+30 10 20 RA
+20 10 30 SA
+20 30 10 RRA
+10 30 20 RRA SA
+10 20 30 sorted
+*/

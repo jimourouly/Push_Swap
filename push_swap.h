@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/06 14:10:07 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/20 18:14:28 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	sa(t_node **stacka);
 void	sb(t_node **stackb);
 void	ss(t_node **stacka, t_node **stackb);
 void	rotate(t_node **stack);
-void	ra(t_node **stacka,t_node **stackb);
+void	ra(t_node **stacka);
 void	rb(t_node **stackb);
 void	rr(t_node **stacka, t_node **stackb);
 t_node	*getbottomnode(t_node *stack);
 
 void	test_operations(void);
-void	tinysort(t_node *head);
+void	tinysort(t_node **head);
 void	find_extreme_nodes(t_node *head, t_node **smallest, t_node **biggest);
 int		sortedlist(t_node *head);
 void	bigsort(t_node *head);
@@ -63,4 +63,6 @@ void	radix_sort(t_node **stacka, t_node **stackb);
 void	distribute_elements(t_node **stacka, t_node **stackb, int exp);
 void	collect_elements(t_node **stacka, t_node **stackb);
 int		convert_to_binary(int num);
+void	getmaxbit(t_node *head);
+void	sortfive(t_node *head);
 #endif

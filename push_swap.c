@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 19:05:45 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/20 16:52:36 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,16 @@ int	main(int ac, char **av)
 	{
 		if (ft_node_length(head) <= 3)
 			tinysort(head);
-		else
+		else if (ft_node_length(head) <= 5)
 		{
-			bigsort(head);
+			//ft_printf("five sort \n");
+			sortfive(head);
 		}
+		else
+			bigsort(head);
 	}
 	free(inttab);
 	freelink(head);
 }
+
+

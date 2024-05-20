@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/20 12:45:35 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/20 18:15:51 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,62 +32,31 @@ int convert_to_binary(int num)
 	return (binary);
 }
 
-void print_stack(t_node *head_a, t_node *head_b)
-{
-	t_node	*current_a;
-	t_node	*current_b;
-
-	current_a = head_a;
-	current_b = head_b;
-	printf("stacka | stackb\n");
-	while (current_a || current_b)
-	{
-		if (current_a)
-		{
-			printf("%04d | ", convert_to_binary(current_a->index));
-			current_a = current_a->next;
-		}
-		else
-		{
-			printf("     | ");
-		}
-		if (current_b)
-		{
-			printf("%04d\n", convert_to_binary(current_b->index));
-			current_b = current_b->next;
-		}
-		else
-		{
-			printf("\n");
-		}
-	}
-}
-
 void	radix(t_node **head, t_node **stackb)
 {
 	int		maxindex;
 	int		bit;
 	int		i;
+	int		j;
+	int		size;
 
 	maxindex = findmaxindex(*head);
-	bit = (ft_log(maxindex, 2) + 1);
+	bit = ft_log(maxindex, 2) + 1;
 	i = 0;
 	while (i < bit)
 	{
-		int size = ft_node_length(*head);
-		int j = 0;
+		size = ft_node_length(*head);
+		j = 0;
 		while (j < size)
 		{
 			if ((((*head)->index >> i) & 1) == 1)
-				ra(head, stackb);
+				ra(head);
 			else
 				pushb(head, stackb);
 			j++;
 		}
 		while (*stackb)
-		{
 			pusha(head, stackb);
-		}
 		i++;
 	}
 }
@@ -105,9 +74,6 @@ void	getmaxbit(t_node *head)
 	maxindex = findmaxindex(head);
 	log = ft_log(maxindex, 2);
 	base = ft_log(maxindex, 2) + 1;
-	ft_node_print_list(head, 'a');
-	ft_node_print_list(stackb, 'b');
-	//print_stack(head, stackb);
 	radix(&head, &stackb);
 }
 
@@ -151,15 +117,60 @@ void	simplifier(t_node *head)
 
 void	tinysort(t_node *head)
 {
-	t_node	*current;
-	t_node	*smallest;
-	t_node	*biggest;
+	t_node	*first;
+	t_node	*second;
+	t_node	*third;
 
-	smallest = NULL;
-	biggest = NULL;
+	first = head;
+	second = first->next;
+	third = second->next;
 	simplifier(head);
-	getmaxbit(head);
+
+	if (first->index < second->index)
+	{
+		rra(&head);
+		if (first->index < third->index)
+			sa(&head);
+	}
+	else if (second->index > third->index)
+	{
+		sa(&head);
+		rra(&head);
+	}
+	else if (first->index < third->index)
+		sa(&head);
+	else
+		ra(&head);
 }
+/*
+void tinysort(t_node **head) {
+    t_node *first;
+    t_node *second;
+    t_node *third;
+
+    first = *head;
+    second = first->next;
+    third = second->next;
+    simplifier(*head);
+
+    if (first->index < second->index) {
+        rra(head);
+        if (first->index < third->index)
+            sa(head);
+    } else if (second->index > third->index) {
+        sa(head);
+        rra(head);
+    } else if (first->index < third->index) {
+        sa(head);
+    } else {
+        ra(head);
+    }
+}
+
+}
+
+*/
+
 
 t_node	*findmaxnode(t_node *head)
 {

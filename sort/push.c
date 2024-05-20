@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:33 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/20 12:37:57 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/20 17:21:57 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,23 @@
 //push top one from b to a
 void	pusha(t_node **stacka, t_node **stackb)
 {
-	push(stackb, stacka);
+
 	//ft_printf("\033[0;31m PA - Top 1 B to A \033[0m\n");
 	ft_printf("pa\n");
-	//ft_node_print_list(*stacka, 'a');
-	//ft_node_print_list(*stackb, 'b');
+	push(stackb, stacka);
+	ft_node_print_list(*stacka, 'a');
+	ft_node_print_list(*stackb, 'b');
 }
 
 //push top one from a to b
 void	pushb(t_node **stacka, t_node **stackb)
 {
-	push(stacka, stackb);
+
 	//ft_printf("\033[0;31m PB - Top 1 A to B\033[0m\n");
 	ft_printf("pb\n");
-	//ft_node_print_list(*stacka, 'a');
-	//ft_node_print_list(*stackb, 'b');
+	push(stacka, stackb);
+	ft_node_print_list(*stacka, 'a');
+	ft_node_print_list(*stackb, 'b');
 }
 
 void	push(t_node **src, t_node **dest)

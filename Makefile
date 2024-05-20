@@ -6,7 +6,7 @@
 #    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/04/24 17:33:07 by jroulet          ###   ########.fr        #
+#    Updated: 2024/05/20 13:37:54 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,13 @@ OBJS = $(SRCS:.c=.o)
 LIBDIR = ./libft
 LIBNAME = libft.a
 
-NAME = push_swap.a
+NAME = push_swap
 
 %.o: %.c
 	$(CC) $(CFLAGS) -g -c $< -o $@
 
 all: $(NAME)
-	$(CC) $(NAME) $(LIBDIR)/$(LIBNAME)
+	$(CC) $(NAME) $(LIBDIR)/$(LIBNAME) -o $(NAME)
 
 
 $(NAME): makelibft $(OBJS)
@@ -57,11 +57,12 @@ git: fclean
 clean:
 	make -C $(LIBDIR) clean
 	rm -f $(OBJS)
+	rm -f ./sort/*.o
 
 fclean: clean
 	make -C $(LIBDIR) fclean
 	rm -f $(NAME)
-	rm ./a.out
+	rm -f ./sort/*.o
 
 re: fclean all
 
