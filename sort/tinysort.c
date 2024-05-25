@@ -6,14 +6,14 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/25 11:28:51 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/25 17:54:44 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "math.h"
 
-int convert_to_binary(int num)
+int	convert_to_binary(int num)
 {
 	int	binary;
 	int	remainder;
@@ -114,7 +114,6 @@ void	simplifier(t_node *head)
 		counter++;
 	}
 }
-
 
 void tinysort(t_node **head) {
 	t_node	*first;

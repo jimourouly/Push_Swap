@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/25 16:41:23 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/25 17:55:25 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ int	main(int ac, char **av)
 			i++;
 		}
 	}
-	if (sortedlist(head))
-		ft_printf("listsorted\n");
-	else
+	if (!sortedlist(head))
 	{
 		if (ft_node_length(head) == 2)
 			sa(&head);
