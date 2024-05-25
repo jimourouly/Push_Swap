@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:47 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/20 16:45:49 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/25 11:56:01 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ra(t_node **stacka)
 {
 	rotate(stacka);
 	ft_printf("ra\n");
-	ft_node_print_list(*stacka, 'a');
+	//ft_node_print_list(*stacka, 'a');
 
 }
 
@@ -40,7 +40,7 @@ void	rb(t_node **stackb)
 {
 	rotate(stackb);
 	ft_printf("rb\n");
-	ft_node_print_list(*stackb, 'b');
+	//ft_node_print_list(*stackb, 'b');
 }
 
 //ascending all nodes in both stack
@@ -50,11 +50,21 @@ void	rr(t_node **stacka, t_node **stackb)
 	rb(stackb);
 	ft_printf("rr\n");
 }
+
 /*
-30 20 10 SA RRA
-30 10 20 RA
-20 10 30 SA
-20 30 10 RRA
-10 30 20 RRA SA
-10 20 30 sorted
+
+98 87 99 90
+ra
+87 99 90 98
+pb
+99 90 98      87
+ra
+90 98 99      87
+pb
+87 90 98 99
+rra
+99 87 90 98
+
+
+
 */

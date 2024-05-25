@@ -1,0 +1,23 @@
+[0;34mstacka value :5: index :0: indexbin :0:[0m
+[0;34mstacka value :4: index :1: indexbin :1:[0m
+[0;34mstacka value :2: index :2: indexbin :10:[0m
+[0;34mstacka value :1: index :3: indexbin :11:[0m
+[0;34mstacka value :3: index :4: indexbin :100:[0m
+ra
+ra
+ra
+pb
+ra
+ra
+ra
+pb
+rra
+sa
+pa
+pa
+____
+[0;34mstacka value :1: index :3: indexbin :11:[0m
+[0;34mstacka value :2: index :2: indexbin :10:[0m
+[0;34mstacka value :3: index :2: indexbin :10:[0m
+[0;34mstacka value :4: index :1: indexbin :1:[0m
+[0;34mstacka value :5: index :3: indexbin :11:[0m

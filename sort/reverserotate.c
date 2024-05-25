@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:40 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/20 17:45:14 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/25 11:43:16 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,16 @@ void	rev(t_node **stack)
 void	rra(t_node **stacka)
 {
 	ft_printf("rra\n");
-	ft_node_print_list(*stacka, 'a');
 	rev(stacka);
-
-	ft_printf("rra res\n");
-	ft_node_print_list(*stacka, 'a');
+	//ft_node_print_list(*stacka, 'a');
 }
 
 //descend all node from b
 void	rrb(t_node **stackb)
 {
-
 	ft_printf("rrb\n");
 	rev(stackb);
-	ft_node_print_list(*stackb, 'b');
+	//ft_node_print_list(*stackb, 'b');
 }
 
 //rra and rrb
@@ -58,7 +54,4 @@ void	rrr(t_node **stacka, t_node **stackb)
 	ft_printf("rrr\n");
 	rev(stacka);
 	rev(stackb);
-
-	ft_node_print_list(*stacka, 'a');
-	ft_node_print_list(*stackb, 'b');
 }

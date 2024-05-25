@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:58 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/20 17:05:28 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/25 11:43:27 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,16 @@ void	swap(t_node *stack)
 // switch top 2 on a
 void	sa(t_node **stacka)
 {
-	swap(*stacka);
-	//ft_printf("\033[0;31m SA - swap the 2 top on A\033[0m\n");
 	ft_printf("sa\n");
-	ft_node_print_list(*stacka, 'a');
+	swap(*stacka);
+	//ft_node_print_list(*stacka, 'a');
 }
 
 // switch top 2 on b
 void	sb(t_node **stackb)
 {
 	swap(*stackb);
-	//ft_printf("\033[0;31m SB -swap the 2 top on B\033[0m\n");
 	ft_printf("sb\n");
-	ft_node_print_list(*stackb, 'b');
 }
 
 // switch top 2 on a and b
@@ -47,6 +44,5 @@ void	ss(t_node **stacka, t_node **stackb)
 {
 	swap(*stacka);
 	swap(*stackb);
-	//ft_printf("\033[0;31m SS - swap the 2 top on A and B\033[0m\n");
 	ft_printf("ss\n");
 }

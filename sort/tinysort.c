@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/20 18:15:51 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/25 11:28:51 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,62 +115,33 @@ void	simplifier(t_node *head)
 	}
 }
 
-void	tinysort(t_node *head)
-{
+
+void tinysort(t_node **head) {
 	t_node	*first;
 	t_node	*second;
 	t_node	*third;
 
-	first = head;
+	first = *head;
 	second = first->next;
 	third = second->next;
-	simplifier(head);
+	simplifier(*head);
 
 	if (first->index < second->index)
 	{
-		rra(&head);
+		rra(head);
 		if (first->index < third->index)
-			sa(&head);
+			sa(head);
 	}
 	else if (second->index > third->index)
 	{
-		sa(&head);
-		rra(&head);
+		sa(head);
+		rra(head);
 	}
 	else if (first->index < third->index)
-		sa(&head);
+		sa(head);
 	else
-		ra(&head);
+		ra(head);
 }
-/*
-void tinysort(t_node **head) {
-    t_node *first;
-    t_node *second;
-    t_node *third;
-
-    first = *head;
-    second = first->next;
-    third = second->next;
-    simplifier(*head);
-
-    if (first->index < second->index) {
-        rra(head);
-        if (first->index < third->index)
-            sa(head);
-    } else if (second->index > third->index) {
-        sa(head);
-        rra(head);
-    } else if (first->index < third->index) {
-        sa(head);
-    } else {
-        ra(head);
-    }
-}
-
-}
-
-*/
-
 
 t_node	*findmaxnode(t_node *head)
 {
@@ -216,9 +187,9 @@ int sortedlist(t_node *head)
 	while (current && current->next != NULL)
 	{
 		if (current->value > current->next->value)
-			return 0;
+			return (0);
 		current = current->next;
 	}
-	return sorted;
+	return (sorted);
 }
 
