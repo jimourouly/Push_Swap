@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 18:14:58 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/25 18:06:50 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,8 +115,6 @@ int	*tabint(int ac, char **av, int *len)
 {
 	char	**tab;
 	int		i;
-	int		dcheck;
-	int		check;
 	int		*inttab;
 
 	if (ac == 2)

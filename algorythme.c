@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/25 17:54:04 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/25 18:07:04 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	bigsort(t_node *head)
 {
-	t_node	*current;
 	t_node	*smallest;
 	t_node	*biggest;
 
