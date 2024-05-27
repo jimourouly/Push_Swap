@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/25 17:54:44 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/27 14:27:03 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ void	getmaxbit(t_node *head)
 	log = ft_log(maxindex, 2);
 	base = ft_log(maxindex, 2) + 1;
 	radix(&head, &stackb);
+	freelink(stackb);
+	freelink(head);
 }
 
 t_node	*findnodebyvalue(t_node *head, int value)
@@ -140,6 +142,7 @@ void tinysort(t_node **head) {
 		sa(head);
 	else
 		ra(head);
+
 }
 
 t_node	*findmaxnode(t_node *head)

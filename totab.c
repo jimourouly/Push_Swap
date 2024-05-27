@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/25 18:06:50 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/27 14:34:20 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ int	*tabtoint(char **chartab)
 
 	i = 0;
 	while (chartab[i])
-	{
 		i++;
-		inttab = malloc(sizeof(int) * i);
-	}
+	inttab = malloc(sizeof(int) * i);
 	i = 0;
 	while (chartab[i])
 	{
@@ -157,6 +155,7 @@ int	*tabint(int ac, char **av, int *len)
 		*len = i;
 		freetab(tab, ac);
 		return (inttab);
+		free(inttab);
 	}
 	freetab(tab, ac);
 	return (NULL);
