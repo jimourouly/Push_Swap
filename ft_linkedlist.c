@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:50:16 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/25 11:53:25 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/27 15:00:58 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void	ft_node_print_list(t_node *head, char stack)
 	{
 		while (temp != NULL)
 		{
+			ft_printf("adress node %p\n", temp);
 			ft_printf("\033[0;34mstack%c value :%d: index :%d: indexbin :%d:\033[0m\n",stack,  temp->value, temp->index, ft_inttobin(temp->index));
 			temp = temp->next;
 		}
@@ -90,6 +91,7 @@ void	ft_node_print_list(t_node *head, char stack)
 	{
 		while (temp != NULL)
 		{
+			ft_printf("adress node %p\n", temp);
 			ft_printf("\033[0;32mstack%c value :%d: index :%d: indexbin :%d: \033[0m\n",stack, temp->value, temp->index, ft_inttobin(temp->index));
 			temp = temp->next;
 		}

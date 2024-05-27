@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/27 14:27:03 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/05/27 14:53:57 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ void	radix(t_node **head, t_node **stackb)
 			pusha(head, stackb);
 		i++;
 	}
+	freelink(*stackb);
+	freelink(*head);
 }
 
 void	getmaxbit(t_node *head)
