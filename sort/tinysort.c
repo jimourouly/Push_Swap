@@ -6,12 +6,14 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 13:19:25 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/09 16:22:13 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include "math.h"
+
+// return a converted number in binary
 
 int	convert_to_binary(int num)
 {
@@ -31,13 +33,29 @@ int	convert_to_binary(int num)
 	}
 	return (binary);
 }
+// push the node to stack b if the bit is 1, else rotate the node
+
+void	push_to_stackb(t_node **head, t_node **stackb, int size, int i)
+{
+	int	j;
+
+	j = 0;
+	while (j < size)
+	{
+		if ((((*head)->index >> i) & 1) == 1)
+			ra(head);
+		else
+			pushb(head, stackb);
+		j++;
+	}
+}
+// do the sorting using radix sort
 
 void	radix(t_node **head, t_node **stackb)
 {
 	int		maxindex;
 	int		bit;
 	int		i;
-	int		j;
 	int		size;
 
 	maxindex = findmaxindex(*head);
@@ -46,15 +64,7 @@ void	radix(t_node **head, t_node **stackb)
 	while (i < bit)
 	{
 		size = ft_node_length(*head);
-		j = 0;
-		while (j < size)
-		{
-			if ((((*head)->index >> i) & 1) == 1)
-				ra(head);
-			else
-				pushb(head, stackb);
-			j++;
-		}
+		push_to_stackb(head, stackb, size, i);
 		while (*stackb)
 			pusha(head, stackb);
 		i++;
@@ -63,15 +73,7 @@ void	radix(t_node **head, t_node **stackb)
 	freelink(*head);
 }
 
-void	getmaxbit(t_node *head)
-{
-	t_node	*stackb;
-
-	stackb = NULL;
-	radix(&head, &stackb);
-	freelink(stackb);
-	freelink(head);
-}
+//return a node by it's value
 
 t_node	*findnodebyvalue(t_node *head, int value)
 {
@@ -86,6 +88,7 @@ t_node	*findnodebyvalue(t_node *head, int value)
 	}
 	return (NULL);
 }
+// add index from 1 to x to the list
 
 void	simplifier(t_node *head)
 {
@@ -110,8 +113,9 @@ void	simplifier(t_node *head)
 		counter++;
 	}
 }
+//sort a list of 3 elements
 
-void tinysort(t_node **head)
+void	tinysort(t_node **head)
 {
 	t_node	*first;
 	t_node	*second;
@@ -137,6 +141,7 @@ void tinysort(t_node **head)
 	else
 		ra(head);
 }
+//return the node with the max value in the list
 
 t_node	*findmaxnode(t_node *head)
 {
@@ -153,6 +158,7 @@ t_node	*findmaxnode(t_node *head)
 	}
 	return (biggest);
 }
+//return the node with the min value in the list
 
 t_node	*findminnode(t_node *head)
 {
@@ -171,8 +177,9 @@ t_node	*findminnode(t_node *head)
 	}
 	return (smallest);
 }
+//return 1 if the list is sorted, else 0
 
-int sortedlist(t_node *head)
+int	sortedlist(t_node *head)
 {
 	t_node	*current;
 	int		sorted;
@@ -187,4 +194,3 @@ int sortedlist(t_node *head)
 	}
 	return (sorted);
 }
-

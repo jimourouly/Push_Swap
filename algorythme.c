@@ -6,18 +6,19 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 13:15:28 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/09 16:45:27 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
 
-void	bigsort(t_node *head)
+void	bigsort(t_node *head, t_node *stackb)
 {
 	simplifier(head);
-	getmaxbit(head);
+	radix(&head, &stackb);
 }
 
+// free the linked list
 void	freelink(t_node *head)
 {
 	t_node	*temp;
@@ -30,6 +31,7 @@ void	freelink(t_node *head)
 	}
 }
 
+// return a node at input index
 t_node	*get_node_at_index(t_node *head, int index)
 {
 	t_node	*current;
@@ -47,6 +49,29 @@ t_node	*get_node_at_index(t_node *head, int index)
 	return (current);
 }
 
+// sort the linked list of 5 nodes - stackb
+void	handle_stackb(t_node **stacka, t_node **stackb)
+{
+	while (*stackb)
+	{
+		if ((*stackb)->value < (*stacka)->value)
+			pusha(stacka, stackb);
+		else if ((*stackb)->value > (*stacka)->value
+			&& (*stackb)->value < (*stacka)->next->value)
+		{
+			ra(stacka);
+			pusha(stacka, stackb);
+			rra(stacka);
+		}
+		else
+		{
+			pusha(stacka, stackb);
+			ra(stacka);
+		}
+	}
+}
+
+// sort the linked list of 5 nodes - stacka
 void	sortfive(t_node **head)
 {
 	t_node	*stackb;
@@ -66,22 +91,7 @@ void	sortfive(t_node **head)
 		if ((stackb->index < stackb->next->index) && size == 5)
 			sb(&stackb);
 	}
-	while (stackb)
-	{
-		if (stackb->value < stacka->value)
-			pusha(&stacka, &stackb);
-		else if (stackb->value > stacka->value && stackb->value < stacka->next->value)
-		{
-			ra(&stacka);
-			pusha(&stacka, &stackb);
-			rra(&stacka);
-		}
-		else
-		{
-			pusha(&stacka, &stackb);
-			ra(&stacka);
-		}
-	}
+	handle_stackb(&stacka, &stackb);
 	freelink(stacka);
 	freelink(stackb);
 }

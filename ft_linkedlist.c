@@ -6,12 +6,13 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:50:16 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 13:22:52 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/09 16:10:57 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// find the max index in the linked list and return it
 t_node	*getbottomnode(t_node *stack)
 {
 	t_node	*tmp;
@@ -24,6 +25,7 @@ t_node	*getbottomnode(t_node *stack)
 	return (tmp);
 }
 
+// return a node with value from input
 t_node	*ft_node_create_new(int value)
 {
 	t_node		*result;
@@ -39,6 +41,7 @@ t_node	*ft_node_create_new(int value)
 	return (result);
 }
 
+// insert a node at the end of the linked list
 void	ft_node_insert_to_end(t_node **head, t_node *newnode)
 {
 	t_node	*current;
@@ -58,6 +61,7 @@ void	ft_node_insert_to_end(t_node **head, t_node *newnode)
 	}
 }
 
+//return the length of the linked list
 int	ft_node_length(t_node *head)
 {
 	int		i;
@@ -72,4 +76,3 @@ int	ft_node_length(t_node *head)
 	}
 	return (i);
 }
-

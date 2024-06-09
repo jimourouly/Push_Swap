@@ -6,29 +6,12 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/04/24 17:58:54 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/09 16:05:00 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
-
-int	findminindex(t_node *head)
-{
-	t_node	*current;
-	int		min_index;
-
-	current = head;
-	min_index = current->index;
-	while (current != NULL)
-	{
-		if (current->index < min_index)
-			min_index = current->index;
-		current = current->next;
-	}
-
-	return (min_index);
-}
-
+// return the max index in the linked list
 int	findmaxindex(t_node *head)
 {
 	t_node	*current;
@@ -42,10 +25,10 @@ int	findmaxindex(t_node *head)
 			max_index = current->index;
 		current = current->next;
 	}
-
 	return (max_index);
 }
 
+// return the node with the same index than input
 t_node	*findnodebyindex(t_node *head, int index)
 {
 	t_node	*current;

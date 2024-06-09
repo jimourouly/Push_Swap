@@ -6,12 +6,13 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 14:08:11 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/09 16:09:17 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+// return a string array from the input
 int	*tabtoint(char **chartab)
 {
 	int	i;
@@ -30,30 +31,7 @@ int	*tabtoint(char **chartab)
 	return (inttab);
 }
 
-void	freetab(char **tab, int ac)
-{
-	int	i;
-
-	i = 0;
-	if (ac == 2)
-	{
-		while (tab[i])
-		{
-			free(tab[i]);
-			i++;
-		}
-	}
-	else
-	{
-		while (i < ac - 1)
-		{
-			free(tab[i]);
-			i++;
-		}
-	}
-	free(tab);
-}
-
+// return 1 if there is no double in the string array
 int	doublechecker(char **tab)
 {
 	int	i;
@@ -78,6 +56,7 @@ int	doublechecker(char **tab)
 	return (1);
 }
 
+// return 1 if the string array is valid (MIN_INT < digit < MAX_INT)
 int	checker(char **tab)
 {
 	int			i;
@@ -96,12 +75,7 @@ int	checker(char **tab)
 				return (0);
 			j++;
 		}
-		i++;
-	}
-	i = 0;
-	while (tab[i])
-	{
-		digit = (ft_atoli(tab[i]));
+		digit = ft_atoli(tab[i]);
 		if (digit < INT_MIN || digit > INT_MAX)
 			return (0);
 		i++;
@@ -109,35 +83,45 @@ int	checker(char **tab)
 	return (1);
 }
 
-int	*tabint(int ac, char **av, int *len)
+// create and return a string array from the input
+char	**create_tab(int ac, char **av, int *i)
 {
 	char	**tab;
-	int		i;
-	int		*inttab;
 
-	i = 0;
+	*i = 0;
 	if (ac == 2)
 	{
 		tab = ft_split(av[1], ' ');
-		while (tab[i])
-			i++;
+		while (tab[*i])
+			(*i)++;
 	}
 	else
 	{
 		tab = malloc(sizeof(char *) * (ac + 1));
 		if (tab == NULL)
 			return (NULL);
-		while (i < ac - 1)
+		while (*i < ac - 1)
 		{
-			tab[i] = malloc(sizeof(char) * (ft_strlen(av[i + 1]) + 1));
-			if (tab[i] == NULL)
+			tab[*i] = malloc(sizeof(char) * (ft_strlen(av[*i + 1]) + 1));
+			if (tab[*i] == NULL)
 				return (freetab(tab, ac), NULL);
-			ft_strcpy(tab[i], av[i + 1]);
-			i++;
+			ft_strcpy(tab[*i], av[*i + 1]);
+			(*i)++;
 		}
-		tab[i] = NULL;
+		tab[*i] = NULL;
 	}
-	if (checker(tab) == 0 || doublechecker(tab) == 0)
+	return (tab);
+}
+
+// return a int array from the input
+int	*tabint(int ac, char **av, int *len)
+{
+	char	**tab;
+	int		i;
+	int		*inttab;
+
+	tab = create_tab(ac, av, &i);
+	if (tab == NULL || checker(tab) == 0 || doublechecker(tab) == 0)
 		return ((freetab(tab, ac), NULL));
 	inttab = tabtoint(tab);
 	*len = i;
