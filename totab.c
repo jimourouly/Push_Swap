@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/27 14:34:20 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/09 14:08:11 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,48 +115,32 @@ int	*tabint(int ac, char **av, int *len)
 	int		i;
 	int		*inttab;
 
+	i = 0;
 	if (ac == 2)
 	{
 		tab = ft_split(av[1], ' ');
-		i = 0;
 		while (tab[i])
 			i++;
 	}
 	else
 	{
 		tab = malloc(sizeof(char *) * (ac + 1));
-		if (!tab)
-		{
-			freetab(tab, ac);
+		if (tab == NULL)
 			return (NULL);
-		}
-		i = 0;
 		while (i < ac - 1)
 		{
 			tab[i] = malloc(sizeof(char) * (ft_strlen(av[i + 1]) + 1));
+			if (tab[i] == NULL)
+				return (freetab(tab, ac), NULL);
 			ft_strcpy(tab[i], av[i + 1]);
 			i++;
 		}
 		tab[i] = NULL;
 	}
-	if (tab == NULL)
-	{
-		freetab(tab, ac);
-		return (NULL);
-	}
 	if (checker(tab) == 0 || doublechecker(tab) == 0)
-	{
-		freetab(tab, ac);
-		return (NULL);
-	}
-	else
-	{
-		inttab = (tabtoint(tab));
-		*len = i;
-		freetab(tab, ac);
-		return (inttab);
-		free(inttab);
-	}
+		return ((freetab(tab, ac), NULL));
+	inttab = tabtoint(tab);
+	*len = i;
 	freetab(tab, ac);
-	return (NULL);
+	return (inttab);
 }

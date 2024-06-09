@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/27 14:39:35 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/09 13:25:16 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,4 @@ int	main(int ac, char **av)
 		else
 			bigsort(head);
 	}
-	ft_node_print_list(head, 'a');
 }

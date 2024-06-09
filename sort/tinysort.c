@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/05/27 14:53:57 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/09 13:19:25 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,17 +65,9 @@ void	radix(t_node **head, t_node **stackb)
 
 void	getmaxbit(t_node *head)
 {
-	t_node	*current;
 	t_node	*stackb;
-	int		maxindex;
-	int		log;
-	int		base;
 
 	stackb = NULL;
-	current = head;
-	maxindex = findmaxindex(head);
-	log = ft_log(maxindex, 2);
-	base = ft_log(maxindex, 2) + 1;
 	radix(&head, &stackb);
 	freelink(stackb);
 	freelink(head);
@@ -119,7 +111,8 @@ void	simplifier(t_node *head)
 	}
 }
 
-void tinysort(t_node **head) {
+void tinysort(t_node **head)
+{
 	t_node	*first;
 	t_node	*second;
 	t_node	*third;
@@ -128,7 +121,6 @@ void tinysort(t_node **head) {
 	second = first->next;
 	third = second->next;
 	simplifier(*head);
-
 	if (first->index < second->index)
 	{
 		rra(head);
@@ -144,7 +136,6 @@ void tinysort(t_node **head) {
 		sa(head);
 	else
 		ra(head);
-
 }
 
 t_node	*findmaxnode(t_node *head)
