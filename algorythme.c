@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 16:45:27 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/09 17:53:34 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,33 +49,12 @@ t_node	*get_node_at_index(t_node *head, int index)
 	return (current);
 }
 
-// sort the linked list of 5 nodes - stackb
-void	handle_stackb(t_node **stacka, t_node **stackb)
-{
-	while (*stackb)
-	{
-		if ((*stackb)->value < (*stacka)->value)
-			pusha(stacka, stackb);
-		else if ((*stackb)->value > (*stacka)->value
-			&& (*stackb)->value < (*stacka)->next->value)
-		{
-			ra(stacka);
-			pusha(stacka, stackb);
-			rra(stacka);
-		}
-		else
-		{
-			pusha(stacka, stackb);
-			ra(stacka);
-		}
-	}
-}
 
 // sort the linked list of 5 nodes - stacka
 void	sortfive(t_node **head)
 {
-	t_node	*stackb;
 	t_node	*stacka;
+	t_node	*stackb;
 	int		size;
 
 	stackb = NULL;
@@ -84,14 +63,15 @@ void	sortfive(t_node **head)
 	size = ft_node_length(stacka);
 	pushb(&stacka, &stackb);
 	if (size == 5)
-		pushb(&stacka, &stackb);
-	tinysort(&stacka);
-	if (size == 5)
 	{
-		if ((stackb->index < stackb->next->index) && size == 5)
+		pushb(&stacka, &stackb);
+		if (!sortedlist(stackb))
 			sb(&stackb);
 	}
-	handle_stackb(&stacka, &stackb);
+	tinysort(&stacka);
+
+	
+
 	freelink(stacka);
 	freelink(stackb);
 }
