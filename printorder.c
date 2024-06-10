@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 16:05:00 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/10 14:37:22 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,21 @@ t_node	*findnodebyindex(t_node *head, int index)
 		current = current->next;
 	}
 	return (NULL);
+}
+
+// retunr the min index in the linked list
+int	findminindex(t_node *head)
+{
+	t_node	*current;
+	int		min_index;
+
+	current = head;
+	min_index = current->index;
+	while (current != NULL)
+	{
+		if (current->index < min_index)
+			min_index = current->index;
+		current = current->next;
+	}
+	return (min_index);
 }

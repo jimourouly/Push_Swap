@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:33 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 15:33:46 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/10 16:09:10 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,17 @@ void	pushb(t_node **stacka, t_node **stackb)
 	push(stacka, stackb);
 }
 
-void	push(t_node **src, t_node **dest)
+void push(t_node **src, t_node **dest)
 {
-	t_node	*tmp;
+	t_node *tmp;
 
 	if (src == NULL || *src == NULL)
-		return ;
+		return;
 	tmp = (*src)->next;
 	if (dest != NULL)
 	{
 		(*src)->next = *dest;
 		*dest = *src;
-	}
-	else
-	{
-		(*src)->next = NULL;
 	}
 	*src = tmp;
 }

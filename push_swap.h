@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 15:39:18 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/10 18:50:22 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	rev(t_node **stack);
 void	rra(t_node **stack);
 void	rrb(t_node **stackb);
 void	rrr(t_node **stacka, t_node **stackb);
-void	swap(t_node *stack);
+void	swap(t_node **stack);
 void	sa(t_node **stacka);
 void	sb(t_node **stackb);
 void	ss(t_node **stacka, t_node **stackb);
@@ -64,4 +64,5 @@ void	distribute_elements(t_node **stacka, t_node **stackb, int exp);
 void	collect_elements(t_node **stacka, t_node **stackb);
 int		convert_to_binary(int num);
 void	sortfive(t_node **head);
+void	ft_node_print_list(t_node *head, char car);
 #endif

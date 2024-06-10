@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 17:25:10 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/10 18:57:55 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,29 +117,8 @@ void	simplifier(t_node *head)
 
 void	tinysort(t_node **head)
 {
-	t_node	*first;
-	t_node	*second;
-	t_node	*third;
 
-	first = *head;
-	second = first->next;
-	third = second->next;
-	simplifier(*head);
-	if (first->index < second->index)
-	{
-		rra(head);
-		if (first->index < third->index)
-			sa(head);
-	}
-	else if (second->index > third->index)
-	{
-		sa(head);
-		rra(head);
-	}
-	else if (first->index < third->index)
-		sa(head);
-	else
-		ra(head);
+
 }
 //return the node with the max value in the list
 

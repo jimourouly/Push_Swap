@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:40 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 13:17:07 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/10 18:24:13 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,29 @@ void	rev(t_node **stack)
 		prev->next = NULL;
 }
 
+//descend all node from a
 void	rra(t_node **stacka)
 {
 	ft_printf("rra\n");
 	rev(stacka);
+
+	ft_printf("rra res\n");
 }
 
+//descend all node from b
 void	rrb(t_node **stackb)
 {
+
 	ft_printf("rrb\n");
 	rev(stackb);
+
 }
 
+//rra and rrb
 void	rrr(t_node **stacka, t_node **stackb)
 {
 	ft_printf("rrr\n");
 	rev(stacka);
 	rev(stackb);
+
 }
