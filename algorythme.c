@@ -111,11 +111,12 @@ void sortfive(t_node **head)
 	{
 		t_node *stacka;
 		t_node *stackb;
-
-		int size;
+		int		i;
+		int		size;
 
 		stackb = NULL;
 		stacka = *head;
+		i = 0;
 
 		simplifier(stacka);
 		size = ft_node_length(*head);
@@ -128,13 +129,39 @@ void sortfive(t_node **head)
 		}
 		ft_node_print_list(stacka, 'a');
 		ft_node_print_list(stackb, 'b');
-		//tinysort(&stacka);
+		tinysort(&stacka);
+		while (i < size)
+		{
+			if (stackb->index < stacka->index)
+				pusha(&stacka, &stackb);
+			if (stackb->index > stacka->index)
+			{
+				if (stackb->index > stacka->next->index)
+				{
+					if (stackb->index > stackb->next->next->index)
+					{
+						pusha(&stacka,&stackb);
+						ra(&stacka);
+					}
+					else 
+					{
+						rra(&stacka);
+						pusha(&stacka,&stackb);
+						rra(&stacka);
+						rra(&stacka);
+					}
+				}
+				else 
+				{
+					ra(&stacka);
+					pusha(&stacka,&stackb);
+				}
+			}
+			i++;
+		}
 
-		/*if (size == 4)
-			handle_stackb1(stacka, stackb);
-		else
-			handle_stackb2(stacka, stackb);
-*/
+
+
 		ft_node_print_list(stacka, 'a');
 		ft_node_print_list(stackb, 'b');
 		freelink(stacka);

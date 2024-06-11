@@ -118,23 +118,51 @@ void	simplifier(t_node *head)
 void	tinysort(t_node **head)
 {
 	t_node	*tmp;
+	t_node	*a;
+	t_node	*b;
+	t_node	*c;
 
 
+	simplifier(*head);
 	tmp = *head;
-	simplifier(tmp);
+	a = tmp;
+	b = a->next;
+	c = b->next;
+
 	ft_node_print_list(tmp, 'a');
-	while (tmp)
+	
+	if	(a->index < b->index)
 	{
-		ft_printf("index %d value %d \n", tmp->index, tmp->value);
-		tmp = tmp->next;
+		if (a->index < c->index)
+		{
+			rra(head);
+			sa(head);
+		}
+		else if (a->index > c->index)
+			rra(head);
 	}
+	else
+	{
+		if (a->index < c->index)
+			sa(head);
+		else if (b->index < c->index)
+			ra(head);
+		else
+		{
+			sa(head);
+			rra(head);
+		}
+	}
+	tmp = *head;
+	ft_node_print_list(tmp, 'a');
+
 	/*
-	1 2 3
-	1 3 2
-	2 1 3
-	2 3 1
-	3 1 2
-	3 2 1
+	1 3 2 - rra sa		a < b > c  a < c
+	2 3 1 - rra			a < b > c  a > c
+
+	2 1 3 - sa			a > b < c  a < c
+	3 1 2 - ra			a > b < c  a > c
+	3 2 1 - sa rra 		a > b > c  a > c
 	*/
 	
 

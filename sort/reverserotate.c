@@ -37,17 +37,13 @@ void	rra(t_node **stacka)
 {
 	ft_printf("rra\n");
 	rev(stacka);
-
-	ft_printf("rra res\n");
 }
 
 //descend all node from b
 void	rrb(t_node **stackb)
 {
-
 	ft_printf("rrb\n");
 	rev(stackb);
-
 }
 
 //rra and rrb
