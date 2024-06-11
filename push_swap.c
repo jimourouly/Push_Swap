@@ -69,11 +69,9 @@ int	main(int ac, char **av)
 	int		*inttab;
 	t_node	*head;
 	t_node	*stackb;
-	t_node	*stacka;
 	int		len;
 
 	stackb = NULL;
-	stacka = NULL;
 	if (ac == 1)
 		return (0);
 	inttab = tabint(ac, av, &len);
@@ -92,7 +90,6 @@ int	main(int ac, char **av)
 		else
 			bigsort(head, stackb);
 	}
-	stacka = head;
 	/*
 	ft_printf("stacka\n");
 	ft_node_print_list(head, 'a');

@@ -78,7 +78,7 @@ void	ft_node_print_list(t_node *head, char stack)
 	ft_printf("\n");
 	//ft_printf("\n");
 }
-void handle_stackb1(t_node *stacka, t_node *stackb)
+/*void handle_stackb1(t_node *stacka, t_node *stackb)
 {
 	t_node *tmp;
 	t_node *tmp2;
@@ -104,7 +104,7 @@ void handle_stackb2(t_node *stacka, t_node *stackb)
 	tmp = stacka;
 	tmp2 = stackb;
 
-}
+}*/
 
 // sort the linked list of 5 nodes - stacka
 void sortfive(t_node **head)
@@ -130,11 +130,11 @@ void sortfive(t_node **head)
 		ft_node_print_list(stackb, 'b');
 		//tinysort(&stacka);
 
-		if (size == 4)
+		/*if (size == 4)
 			handle_stackb1(stacka, stackb);
 		else
 			handle_stackb2(stacka, stackb);
-
+*/
 		ft_node_print_list(stacka, 'a');
 		ft_node_print_list(stackb, 'b');
 		freelink(stacka);

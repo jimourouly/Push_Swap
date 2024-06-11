@@ -117,7 +117,26 @@ void	simplifier(t_node *head)
 
 void	tinysort(t_node **head)
 {
+	t_node	*tmp;
 
+
+	tmp = *head;
+	simplifier(tmp);
+	ft_node_print_list(tmp, 'a');
+	while (tmp)
+	{
+		ft_printf("index %d value %d \n", tmp->index, tmp->value);
+		tmp = tmp->next;
+	}
+	/*
+	1 2 3
+	1 3 2
+	2 1 3
+	2 3 1
+	3 1 2
+	3 2 1
+	*/
+	
 
 }
 //return the node with the max value in the list
