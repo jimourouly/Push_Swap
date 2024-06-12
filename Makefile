@@ -6,7 +6,7 @@
 #    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/05/27 14:43:45 by jroulet          ###   ########.fr        #
+#    Updated: 2024/06/12 18:38:40 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS = push_swap.c\
 		./sort/push.c\
 		./sort/rotate.c\
 		./sort/swap.c\
+		./sort/ft_ll.c\
 		./sort/reverserotate.c\
 		./sort/tinysort.c\
 		./algorythme.c\

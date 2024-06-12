@@ -6,18 +6,18 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:58 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/10 18:13:15 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:30:19 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void swap(t_node **stack)
+void	swap(t_node **stack)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	if (*stack == NULL || (*stack)->next == NULL)
-		return;
+		return ;
 	temp = (*stack)->next;
 	(*stack)->next = temp->next;
 	temp->next = *stack;

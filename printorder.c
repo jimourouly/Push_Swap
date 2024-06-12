@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/12 16:47:05 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/12 18:28:57 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	findmaxindex(t_node *head)
 	current = head;
 	if (current == NULL)
 		return (0);
-
 	max_index = current->index;
 	if (current->next == NULL)
 		return (max_index);

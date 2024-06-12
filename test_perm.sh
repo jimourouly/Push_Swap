@@ -6,19 +6,24 @@
 #    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#              #
-#    Updated: 2024/06/12 18:21:21 by jroulet          ###   ########.fr        #
+#    Updated: 2024/06/12 18:24:54 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# Initialiser les compteurs
+success_count=0
+fail_count=0
 
 # Définition de la fonction pour exécuter un test et afficher le résultat
 run_test() {
     ARG="$1"
     RESULT=$(./push_swap $ARG | ./checker_OS $ARG)
     if [ "$RESULT" = "OK" ]; then
+	((success_count++))
         echo "Test succeeded: $ARG"
     else
         echo "Test failed: $ARG"
+		((fail_count++))
     fi
 }
 
