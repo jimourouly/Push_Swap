@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/10 18:57:48 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/12 15:09:13 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,92 +78,230 @@ void	ft_node_print_list(t_node *head, char stack)
 	ft_printf("\n");
 	//ft_printf("\n");
 }
-/*void handle_stackb1(t_node *stacka, t_node *stackb)
-{
-	t_node *tmp;
-	t_node *tmp2;
 
-	tmp = stacka;
-	tmp2 = stackb;
-
-	ft_printf("handle_stackb1\n");
-	ft_printf("stackb->index = %d\n", stackb->index);
-	while (tmp)
-	{
-		ft_printf("stacka->index = %d\n", tmp->index);
-		tmp = tmp->next;
-	}
-}
-
-void handle_stackb2(t_node *stacka, t_node *stackb)
-{
-	t_node *tmp;
-	t_node *tmp2;
-
-	ft_printf("handle_stackb2\n");
-	tmp = stacka;
-	tmp2 = stackb;
-
-}*/
 
 // sort the linked list of 5 nodes - stacka
 void sortfive(t_node **head)
 	{
-		t_node *stacka;
+		t_node *a;
+		t_node *b;
+		t_node *c;
+		t_node *d;
 		t_node *stackb;
-		int		i;
 		int		size;
 
 		stackb = NULL;
-		stacka = *head;
-		i = 0;
+		a = *head;
+		b = a->next;
+		c = b->next;
+		d = c->next;
 
-		simplifier(stacka);
+		simplifier(a);
 		size = ft_node_length(*head);
-		pushb(&stacka, &stackb);
+		pushb(&a, &stackb);
 		if (size == 5)
 		{
-			pushb(&stacka, &stackb);
+			pushb(&a, &stackb);
 			if (!sortedlist(stackb))
 				sb(&stackb);
 		}
-		ft_node_print_list(stacka, 'a');
-		ft_node_print_list(stackb, 'b');
-		tinysort(&stacka);
-		while (i < size)
+		tinysort(&a);
+		//ft_node_print_list(a, 'a');
+		//ft_node_print_list(stackb, 'b');
+		//ft_printf("size :%d:\n", size);
+
+		while (size > 0 && stackb)
 		{
-			if (stackb->index < stacka->index)
-				pusha(&stacka, &stackb);
-			if (stackb->index > stacka->index)
+			//ft_printf("while\n");
+			//ft_node_print_list(a, 'a');
+			//ft_node_print_list(stackb, 'b');
+			if (stackb->value < a->value)
 			{
-				if (stackb->index > stacka->next->index)
-				{
-					if (stackb->index > stackb->next->next->index)
-					{
-						pusha(&stacka,&stackb);
-						ra(&stacka);
-					}
-					else 
-					{
-						rra(&stacka);
-						pusha(&stacka,&stackb);
-						rra(&stacka);
-						rra(&stacka);
-					}
-				}
-				else 
-				{
-					ra(&stacka);
-					pusha(&stacka,&stackb);
-				}
+
+			//	ft_printf("1\n");
+				pusha(&a, &stackb);
 			}
-			i++;
+			else if (stackb->value < b->value)
+			{
+
+			//	ft_printf("2\n");
+				pusha(&a, &stackb);
+				sa(&a);
+			}
+			else if (stackb->value < c->value)
+			{
+				//ft_node_print_list(a, 'a');
+			//	//ft_printf("3\n");
+			//	ft_printf("stackb->value :%d:\n", stackb->value);
+			//	ft_printf("a->value :%d:\n", a->value);
+			//	ft_printf("c->value :%d:\n", c->value);
+				pusha(&a, &stackb);
+				sa(&a);
+
+			}
+			else if (stackb->value < d->value)
+			{
+			//	ft_printf("4\n");
+				rra(&a);
+				pusha(&a, &stackb);
+				ra(&a);
+				ra(&a);
+			}
+			else if (stackb->value > d->value)
+			{
+			//	ft_printf("5\n");
+				pusha(&a, &stackb);
+				ra(&a);
+
+			}
+			//ft_printf("endwhile\n");
+			//ft_node_print_list(a, 'a');
+			//ft_node_print_list(stackb, 'b');
 		}
+	//ft_node_print_list(a, 'a');
 
-
-
-		ft_node_print_list(stacka, 'a');
-		ft_node_print_list(stackb, 'b');
-		freelink(stacka);
-		freelink(stackb);
 	}
+
+	/*
+	if ba < aa
+		pusha
+	if ba > aa && ba < ab
+		pa
+		sa
+	if ba > aa && ba > ab && ba < ac
+		ra
+		ra
+		pa
+		rra
+		rra
+	if ba > aa && ba > ab && ba > ac && ba < ad
+		rra
+		pa
+		ra
+		ra
+	if ba > aa && ba > ab && ba > ac && ba > ad
+		pa
+		rra
+
+
+1 2 3 4 5
+1 2 3 5 4
+1 2 4 3 5
+1 2 4 5 3
+1 2 5 3 4
+1 2 5 4 3
+1 3 2 4 5
+1 3 2 5 4
+1 3 4 2 5
+1 3 4 5 2
+1 3 5 2 4
+1 3 5 4 2
+1 4 2 3 5
+1 4 2 5 3
+1 4 3 2 5
+1 4 3 5 2
+1 4 5 2 3
+1 4 5 3 2
+1 5 2 3 4
+1 5 2 4 3
+1 5 3 2 4
+1 5 3 4 2
+1 5 4 2 3
+1 5 4 3 2
+2 1 3 4 5
+2 1 3 5 4
+2 1 4 3 5
+2 1 4 5 3
+2 1 5 3 4
+2 1 5 4 3
+2 3 1 4 5
+2 3 1 5 4
+2 3 4 1 5
+2 3 4 5 1
+2 3 5 1 4
+2 3 5 4 1
+2 4 1 3 5
+2 4 1 5 3
+2 4 3 1 5
+2 4 3 5 1
+2 4 5 1 3
+2 4 5 3 1
+2 5 1 3 4
+2 5 1 4 3
+2 5 3 1 4
+2 5 3 4 1
+2 5 4 1 3
+2 5 4 3 1
+3 1 2 4 5
+3 1 2 5 4
+3 1 4 2 5
+3 1 4 5 2
+3 1 5 2 4
+3 1 5 4 2
+3 2 1 4 5
+3 2 1 5 4
+3 2 4 1 5
+3 2 4 5 1
+3 2 5 1 4
+3 2 5 4 1
+3 4 1 2 5
+3 4 1 5 2
+3 4 2 1 5
+3 4 2 5 1
+3 4 5 1 2
+3 4 5 2 1
+3 5 1 2 4
+3 5 1 4 2
+3 5 2 1 4
+3 5 2 4 1
+3 5 4 1 2
+3 5 4 2 1
+4 1 2 3 5
+4 1 2 5 3
+4 1 3 2 5
+4 1 3 5 2
+4 1 5 2 3
+4 1 5 3 2
+4 2 1 3 5
+4 2 1 5 3
+4 2 3 1 5
+4 2 3 5 1
+4 2 5 1 3
+4 2 5 3 1
+4 3 1 2 5
+4 3 1 5 2
+4 3 2 1 5
+4 3 2 5 1
+4 3 5 1 2
+4 3 5 2 1
+4 5 1 2 3
+4 5 1 3 2
+4 5 2 1 3
+4 5 2 3 1
+4 5 3 1 2
+4 5 3 2 1
+5 1 2 3 4
+5 1 2 4 3
+5 1 3 2 4
+5 1 3 4 2
+5 1 4 2 3
+5 1 4 3 2
+5 2 1 3 4
+5 2 1 4 3
+5 2 3 1 4
+5 2 3 4 1
+5 2 4 1 3
+5 2 4 3 1
+5 3 1 2 4
+5 3 1 4 2
+5 3 2 1 4
+5 3 2 4 1
+5 3 4 1 2
+5 3 4 2 1
+5 4 1 2 3
+5 4 1 3 2
+5 4 2 1 3
+5 4 2 3 1
+5 4 3 1 2
+5 4 3 2 1
+	*/

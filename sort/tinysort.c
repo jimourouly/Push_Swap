@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/10 18:57:55 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/12 13:59:54 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,8 +129,8 @@ void	tinysort(t_node **head)
 	b = a->next;
 	c = b->next;
 
-	ft_node_print_list(tmp, 'a');
-	
+	if (sortedlist(*head))
+		return ;
 	if	(a->index < b->index)
 	{
 		if (a->index < c->index)
@@ -154,18 +154,6 @@ void	tinysort(t_node **head)
 		}
 	}
 	tmp = *head;
-	ft_node_print_list(tmp, 'a');
-
-	/*
-	1 3 2 - rra sa		a < b > c  a < c
-	2 3 1 - rra			a < b > c  a > c
-
-	2 1 3 - sa			a > b < c  a < c
-	3 1 2 - ra			a > b < c  a > c
-	3 2 1 - sa rra 		a > b > c  a > c
-	*/
-	
-
 }
 //return the node with the max value in the list
 
