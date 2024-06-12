@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/12 13:43:58 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/12 17:05:07 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int	main(int ac, char **av)
 	head = create_linked_list(inttab, len);
 	if (!sortedlist(head))
 	{
+		simplifier(head);
 		len = ft_node_length(head);
 		if (len == 2)
 			sa(&head);
@@ -90,23 +91,4 @@ int	main(int ac, char **av)
 		else
 			bigsort(head, stackb);
 	}
-	/*
-	ft_printf("stacka\n");
-	ft_node_print_list(head, 'a');
-	ft_printf("ra\n");
-	ra(&head);
-	ft_node_print_list(head, 'a');
-	ft_printf("rra\n");
-	rra(&head);
-	ft_node_print_list(head, 'a');
-	ft_printf("sa\n");
-	sa(&head);
-	ft_node_print_list(head, 'a');
-	pushb(&head, &stackb);
-	ft_node_print_list(head, 'a');
-	ft_node_print_list(stackb, 'b');
-	pusha(&head, &stackb);
-	ft_node_print_list(head, 'a');
-	ft_node_print_list(stackb, 'b');*/
-
 }

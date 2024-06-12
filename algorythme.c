@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/12 15:09:13 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/12 17:55:05 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,233 +75,92 @@ void	ft_node_print_list(t_node *head, char stack)
 			i++;
 		}
 	}
-	ft_printf("\n");
-	//ft_printf("\n");
 }
 
 
 // sort the linked list of 5 nodes - stacka
 void sortfive(t_node **head)
 	{
-		t_node *a;
-		t_node *b;
-		t_node *c;
-		t_node *d;
+		t_node	*stacka;
 		t_node *stackb;
 		int		size;
 
 		stackb = NULL;
-		a = *head;
-		b = a->next;
-		c = b->next;
-		d = c->next;
-
-		simplifier(a);
+		stacka = *head;
 		size = ft_node_length(*head);
-		pushb(&a, &stackb);
+		//ft_node_print_list(stacka, 'a');
+		pushb(&stacka, &stackb);
 		if (size == 5)
 		{
-			pushb(&a, &stackb);
+			pushb(&stacka, &stackb);
 			if (!sortedlist(stackb))
 				sb(&stackb);
 		}
-		tinysort(&a);
-		//ft_node_print_list(a, 'a');
-		//ft_node_print_list(stackb, 'b');
-		//ft_printf("size :%d:\n", size);
+	//	ft_node_print_list(stacka, 'a');
+	//	ft_node_print_list(stackb, 'b');
+		tinysort(&stacka);
+	//	ft_node_print_list(stacka, 'a');
+	//	ft_node_print_list(stackb, 'b');
+
 
 		while (size > 0 && stackb)
 		{
-			//ft_printf("while\n");
-			//ft_node_print_list(a, 'a');
-			//ft_node_print_list(stackb, 'b');
-			if (stackb->value < a->value)
+			if (stackb->index == 1 && stackb)
+			{
+			//ft_printf("\t1\n");
+			//	ft_printf("stackb->index :%d:\n", stackb->index);
+				pusha(&stacka, &stackb);
+			}
+			else if (stackb->index == 2 && stackb)
+			{
+			//ft_printf("stackb->index :%d:\n", stackb->index);
+				//ft_printf("\t2\n");
+				pusha(&stacka, &stackb);
+				sa(&stacka);
+			}
+			else if (stackb->index == 3 && stackb)
+			{
+			//	ft_printf("stackb->index :%d:\n", stackb->index);
+			//	ft_printf("\t3\n");
+				ra(&stacka);
+				ra(&stacka);
+				pusha(&stacka, &stackb);
+				rra(&stacka);
+				rra(&stacka);
+			}
+			else if (stackb->index == 4 && stackb)
 			{
 
-			//	ft_printf("1\n");
-				pusha(&a, &stackb);
-			}
-			else if (stackb->value < b->value)
-			{
+			//	ft_printf("\t4\n");
+				if (findmaxindex(stackb) == 4 && findmaxindex(stacka) != 5)
+				{
+				//	ft_printf("maxindex :%d:\n", findmaxindex(stackb));
+					pusha(&stacka, &stackb);
+					ra(&stacka);
+				}
+				else
+				{
+				//	ft_node_print_list(stacka, 'a');
+				//	ft_node_print_list(stackb, 'b');
+					rra(&stacka);
+					pusha(&stacka, &stackb);
 
-			//	ft_printf("2\n");
-				pusha(&a, &stackb);
-				sa(&a);
+			//	ft_printf("maxindex :%d:\n", findmaxindex(stackb));
+					if (findmaxindex(stackb)== 5)
+						sa(&stacka);
+					ra(&stacka);
+					ra(&stacka);
+				}
 			}
-			else if (stackb->value < c->value)
+			else if (stackb->index == 5 &&stackb)
 			{
-				//ft_node_print_list(a, 'a');
-			//	//ft_printf("3\n");
-			//	ft_printf("stackb->value :%d:\n", stackb->value);
-			//	ft_printf("a->value :%d:\n", a->value);
-			//	ft_printf("c->value :%d:\n", c->value);
-				pusha(&a, &stackb);
-				sa(&a);
-
+			//	ft_printf("stackb->index :%d:\n", stackb->index);
+			//	ft_printf("\t5\n");
+				pusha(&stacka, &stackb);
+				ra(&stacka);
 			}
-			else if (stackb->value < d->value)
-			{
-			//	ft_printf("4\n");
-				rra(&a);
-				pusha(&a, &stackb);
-				ra(&a);
-				ra(&a);
-			}
-			else if (stackb->value > d->value)
-			{
-			//	ft_printf("5\n");
-				pusha(&a, &stackb);
-				ra(&a);
-
-			}
-			//ft_printf("endwhile\n");
-			//ft_node_print_list(a, 'a');
-			//ft_node_print_list(stackb, 'b');
 		}
-	//ft_node_print_list(a, 'a');
-
+	//ft_node_print_list(stacka, 'a');
+		freelink(stackb);
+		freelink(stacka);
 	}
-
-	/*
-	if ba < aa
-		pusha
-	if ba > aa && ba < ab
-		pa
-		sa
-	if ba > aa && ba > ab && ba < ac
-		ra
-		ra
-		pa
-		rra
-		rra
-	if ba > aa && ba > ab && ba > ac && ba < ad
-		rra
-		pa
-		ra
-		ra
-	if ba > aa && ba > ab && ba > ac && ba > ad
-		pa
-		rra
-
-
-1 2 3 4 5
-1 2 3 5 4
-1 2 4 3 5
-1 2 4 5 3
-1 2 5 3 4
-1 2 5 4 3
-1 3 2 4 5
-1 3 2 5 4
-1 3 4 2 5
-1 3 4 5 2
-1 3 5 2 4
-1 3 5 4 2
-1 4 2 3 5
-1 4 2 5 3
-1 4 3 2 5
-1 4 3 5 2
-1 4 5 2 3
-1 4 5 3 2
-1 5 2 3 4
-1 5 2 4 3
-1 5 3 2 4
-1 5 3 4 2
-1 5 4 2 3
-1 5 4 3 2
-2 1 3 4 5
-2 1 3 5 4
-2 1 4 3 5
-2 1 4 5 3
-2 1 5 3 4
-2 1 5 4 3
-2 3 1 4 5
-2 3 1 5 4
-2 3 4 1 5
-2 3 4 5 1
-2 3 5 1 4
-2 3 5 4 1
-2 4 1 3 5
-2 4 1 5 3
-2 4 3 1 5
-2 4 3 5 1
-2 4 5 1 3
-2 4 5 3 1
-2 5 1 3 4
-2 5 1 4 3
-2 5 3 1 4
-2 5 3 4 1
-2 5 4 1 3
-2 5 4 3 1
-3 1 2 4 5
-3 1 2 5 4
-3 1 4 2 5
-3 1 4 5 2
-3 1 5 2 4
-3 1 5 4 2
-3 2 1 4 5
-3 2 1 5 4
-3 2 4 1 5
-3 2 4 5 1
-3 2 5 1 4
-3 2 5 4 1
-3 4 1 2 5
-3 4 1 5 2
-3 4 2 1 5
-3 4 2 5 1
-3 4 5 1 2
-3 4 5 2 1
-3 5 1 2 4
-3 5 1 4 2
-3 5 2 1 4
-3 5 2 4 1
-3 5 4 1 2
-3 5 4 2 1
-4 1 2 3 5
-4 1 2 5 3
-4 1 3 2 5
-4 1 3 5 2
-4 1 5 2 3
-4 1 5 3 2
-4 2 1 3 5
-4 2 1 5 3
-4 2 3 1 5
-4 2 3 5 1
-4 2 5 1 3
-4 2 5 3 1
-4 3 1 2 5
-4 3 1 5 2
-4 3 2 1 5
-4 3 2 5 1
-4 3 5 1 2
-4 3 5 2 1
-4 5 1 2 3
-4 5 1 3 2
-4 5 2 1 3
-4 5 2 3 1
-4 5 3 1 2
-4 5 3 2 1
-5 1 2 3 4
-5 1 2 4 3
-5 1 3 2 4
-5 1 3 4 2
-5 1 4 2 3
-5 1 4 3 2
-5 2 1 3 4
-5 2 1 4 3
-5 2 3 1 4
-5 2 3 4 1
-5 2 4 1 3
-5 2 4 3 1
-5 3 1 2 4
-5 3 1 4 2
-5 3 2 1 4
-5 3 2 4 1
-5 3 4 1 2
-5 3 4 2 1
-5 4 1 2 3
-5 4 1 3 2
-5 4 2 1 3
-5 4 2 3 1
-5 4 3 1 2
-5 4 3 2 1
-	*/
