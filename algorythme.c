@@ -109,6 +109,4 @@ void	sortfive(t_node **head)
 			ra(&stacka);
 		}
 	}
-	freelink(stackb);
-	freelink(stacka);
 }

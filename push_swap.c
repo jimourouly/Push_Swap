@@ -36,7 +36,7 @@ void	freetab(char **tab, int ac)
 	}
 	else
 	{
-		while (i < ac - 1)
+		while (i < ac -1)
 		{
 			free(tab[i]);
 			i++;
@@ -62,6 +62,16 @@ t_node	*create_linked_list(int *inttab, int len)
 		i++;
 	}
 	return (head);
+}
+
+void free_linked_list(t_node *head) {
+    t_node *tmp;
+
+    while (head != NULL) {
+        tmp = head;
+        head = head->next;
+        free(tmp);
+    }
 }
 
 int	main(int ac, char **av)
@@ -91,4 +101,7 @@ int	main(int ac, char **av)
 		else
 			bigsort(head, stackb);
 	}
+	free_linked_list(head);
+	free_linked_list(stackb);
+	free(inttab);
 }
