@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/19 12:40:41 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/19 14:13:41 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,6 @@ t_node	*create_linked_list(int *inttab, int len)
 	return (head);
 }
 
-void free_linked_list(t_node *head) {
-    t_node *tmp;
-
-    while (head != NULL) {
-        tmp = head;
-        head = head->next;
-		ft_printf("free_linked free address %p value %d\n", tmp, tmp->value);
-        free(tmp);
-    }
-}
-
 int	main(int ac, char **av)
 {
 	int		*inttab;
@@ -97,21 +86,25 @@ int	main(int ac, char **av)
 		if (len == 2)
 		{
 			sa(&head);
-			freelink(head);
 		}
 		else if (len == 3)
 			tinysort(&head);
 		else if (len <= 5)
+		{
 			sortfive(&head);
+			ft_node_print_list(head, 'a');
+		}
 		else
 			bigsort(head, stackb);
 	}
 
-	ft_printf("free main head %p value %d\n", head, head->value);
-	free_linked_list(head);
-	ft_printf("free main stackb %p\n", stackb);
-	free_linked_list(stackb);
-	free(inttab);
+	if (inttab)
+		free(inttab);
+	if (head->next != NULL)
+	{
+		//ft_printf("freelink head %p \n", head->value);
+		freelink(head);
+	}
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/19 12:20:39 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/19 14:14:31 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,26 @@
 
 void	bigsort(t_node *head, t_node *stackb)
 {
-	ft_printf("head %p\n", head);
 	simplifier(head);
 	radix(&head, &stackb);
 }
 
 // free the linked list
-void	freelink(t_node *head)
+void freelink(t_node *head)
 {
-	t_node	*temp;
+	t_node *temp;
 
-	while (head != NULL)
+	if (!head)
+		ft_printf("head is null\n") ;
+	while (head)
 	{
 		temp = head;
 		head = head->next;
-		ft_printf("freelink free address %p value %d\n", temp, temp->value);
+		ft_printf("free address %p value %d \n", temp, temp->value);
 		free(temp);
 	}
+	head = NULL;
 }
-
 // return a node at input index
 t_node	*get_node_at_index(t_node *head, int index)
 {
@@ -111,4 +112,5 @@ void	sortfive(t_node **head)
 			ra(&stacka);
 		}
 	}
+	*head = stacka;
 }

@@ -6,12 +6,12 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/19 12:40:17 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/19 14:11:54 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-#include "math.h"
+
 
 // return a converted number in binary
 
@@ -58,6 +58,7 @@ void	radix(t_node **head, t_node **stackb)
 	int		i;
 	int		size;
 
+
 	maxindex = findmaxindex(*head);
 	bit = ft_log(maxindex, 2) + 1;
 	i = 0;
@@ -69,8 +70,10 @@ void	radix(t_node **head, t_node **stackb)
 			pusha(head, stackb);
 		i++;
 	}
-	freelink(*stackb);
+	ft_node_print_list(*head, 'a');
+	ft_node_print_list(*stackb, 'b');
 	freelink(*head);
+
 }
 
 //return a node by it's value
@@ -151,8 +154,6 @@ void	tinysort(t_node **head)
 		}
 	}
 	tmp = *head;
-	ft_printf("head %p value %d\n", tmp, tmp->value);
-	freelink(tmp);
 }
 //return the node with the max value in the list
 
