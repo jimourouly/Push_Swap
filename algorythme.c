@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/12 18:28:20 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/19 12:20:39 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	bigsort(t_node *head, t_node *stackb)
 {
+	ft_printf("head %p\n", head);
 	simplifier(head);
 	radix(&head, &stackb);
 }
@@ -27,6 +28,7 @@ void	freelink(t_node *head)
 	{
 		temp = head;
 		head = head->next;
+		ft_printf("freelink free address %p value %d\n", temp, temp->value);
 		free(temp);
 	}
 }

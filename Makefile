@@ -6,7 +6,7 @@
 #    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/06/12 18:48:43 by jroulet          ###   ########.fr        #
+#    Updated: 2024/06/19 12:00:39 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ makelibft:
 	cp $(LIBDIR)/$(LIBNAME) .
 
 debug: $(NAME)
-	$(CC) -fsanitize=address $(DEBUGGER) $(OBJS) $(LIBDIR)/$(LIBNAME) -o $(NAME)
+	$(CC) $(DEBUGGER) $(OBJS) $(LIBDIR)/$(LIBNAME) -o $(NAME)
 
 git: fclean
 	git add .

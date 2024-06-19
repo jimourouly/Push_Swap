@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/12 18:42:22 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/19 12:40:17 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,8 @@ void	tinysort(t_node **head)
 		}
 	}
 	tmp = *head;
+	ft_printf("head %p value %d\n", tmp, tmp->value);
+	freelink(tmp);
 }
 //return the node with the max value in the list
 

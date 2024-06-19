@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/12 18:41:06 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/19 12:40:41 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void free_linked_list(t_node *head) {
     while (head != NULL) {
         tmp = head;
         head = head->next;
+		ft_printf("free_linked free address %p value %d\n", tmp, tmp->value);
         free(tmp);
     }
 }
@@ -82,7 +83,8 @@ int	main(int ac, char **av)
 	int		len;
 
 	stackb = NULL;
-	if (ac == 1)
+	freelink(stackb);
+	if (ac == 1 || ac == 2)
 		return (0);
 	inttab = tabint(ac, av, &len);
 	if (!inttab)
@@ -93,7 +95,10 @@ int	main(int ac, char **av)
 		simplifier(head);
 		len = ft_node_length(head);
 		if (len == 2)
+		{
 			sa(&head);
+			freelink(head);
+		}
 		else if (len == 3)
 			tinysort(&head);
 		else if (len <= 5)
@@ -101,7 +106,25 @@ int	main(int ac, char **av)
 		else
 			bigsort(head, stackb);
 	}
+
+	ft_printf("free main head %p value %d\n", head, head->value);
 	free_linked_list(head);
+	ft_printf("free main stackb %p\n", stackb);
 	free_linked_list(stackb);
 	free(inttab);
 }
+
+
+/*
+
+	1 ok
+	2 ok
+	3 ok
+	4 - 3 leaks
+	5 - 4 leaks
+	6 - 1 free too much
+	7 - 2 free too much
+	8 - 3 leaks too much
+
+
+*/
