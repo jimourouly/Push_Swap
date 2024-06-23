@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printorder.c                                       :+:      :+:    :+:   */
+/*   ft_node.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/12 18:28:57 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/23 12:09:54 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./push_swap.h"
+
 // return the max index in the linked list
 int	findmaxindex(t_node *head)
 {
@@ -62,4 +63,40 @@ int	findminindex(t_node *head)
 		current = current->next;
 	}
 	return (min_index);
+}
+
+//return the node with the max value in the list
+t_node	*findmaxnode(t_node *head)
+{
+	t_node	*current;
+	t_node	*biggest;
+
+	current = head;
+	biggest = head;
+	while (current)
+	{
+		if (current->value > biggest->value)
+			biggest = current;
+		current = current->next;
+	}
+	return (biggest);
+}
+
+//return the node with the min value in the list
+t_node	*findminnode(t_node *head)
+{
+	t_node	*current;
+	t_node	*smallest;
+
+	current = head;
+	smallest = head;
+	while (current)
+	{
+		if (current->value < smallest->value)
+		{
+			smallest = current;
+		}
+		current = current->next;
+	}
+	return (smallest);
 }

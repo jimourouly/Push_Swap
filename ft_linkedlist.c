@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 18:50:16 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/19 11:56:53 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/23 12:16:24 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ t_node	*ft_node_create_new(int value)
 	static int	i;
 
 	result = malloc(sizeof(t_node));
-	ft_printf("malloc address %p value %d\n", result, value);
 	if (!result)
 		return (NULL);
 	result->value = value;
@@ -76,4 +75,22 @@ int	ft_node_length(t_node *head)
 		i++;
 	}
 	return (i);
+}
+
+// return a node at input index
+t_node	*get_node_at_index(t_node *head, int index)
+{
+	t_node	*current;
+	int		i;
+
+	current = head;
+	i = 0;
+	while (i < index)
+	{
+		current = current->next;
+		if (current == head)
+			return (NULL);
+		i++;
+	}
+	return (current);
 }

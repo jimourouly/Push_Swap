@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:47 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 13:17:45 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/23 17:20:58 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,14 @@ void	rotate(t_node **head)
 	t_node	*tmp;
 	t_node	*bottom;
 
-	if (!head || !(*head)->next)
+	if (!head || !(*head) || !(*head)->next)
 		return ;
 	tmp = *head;
 	*head = (*head)->next;
 	bottom = getbottomnode(*head);
 	tmp->next = NULL;
 	bottom->next = tmp;
+	bottom = getbottomnode(*head);
 }
 
 void	ra(t_node **stacka)

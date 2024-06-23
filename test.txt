@@ -1,0 +1,147 @@
+[0;34mstacka value :60: index :0: indexbin :0: address 0x5c97852b4390 [0m
+[0;34mstacka value :50: index :1: indexbin :1: address 0x5c97852b4370 [0m
+[0;34mstacka value :40: index :2: indexbin :2: address 0x5c97852b4350 [0m
+[0;34mstacka value :20: index :3: indexbin :3: address 0x5c97852b4330 [0m
+[0;34mstacka value :10: index :4: indexbin :4: address 0x5c97852b4310 [0m
+[0;34mstacka value :30: index :5: indexbin :5: address 0x5c97852b42f0 [0m
+
+bigsort
+[0;34mstacka value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+[0;34mstacka value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+[0;34mstacka value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;34mstacka value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;34mstacka value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;34mstacka value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+
+push_to_stackb
+head = 60
+pb
+pb = 60 
+[0;34mstacka value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+[0;34mstacka value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+[0;34mstacka value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;34mstacka value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;34mstacka value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;34mstacka value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+
+
+[0;34mstacka value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+[0;34mstacka value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;34mstacka value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;34mstacka value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;34mstacka value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+
+[0;32mstackb value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+
+ra
+[0;34mstacka value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;34mstacka value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;34mstacka value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;34mstacka value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+[0;34mstacka value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+
+[0;32mstackb value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+
+head = 40
+pb
+pb = 40 
+[0;34mstacka value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;34mstacka value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;34mstacka value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;34mstacka value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+[0;34mstacka value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+
+[0;32mstackb value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+
+[0;34mstacka value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;34mstacka value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;34mstacka value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+[0;34mstacka value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+
+[0;32mstackb value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;32mstackb value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+
+head = 20
+pb
+pb = 20 
+[0;34mstacka value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;34mstacka value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;34mstacka value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+[0;34mstacka value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+
+[0;32mstackb value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;32mstackb value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+
+[0;34mstacka value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;34mstacka value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+[0;34mstacka value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+
+[0;32mstackb value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;32mstackb value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;32mstackb value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+
+ra
+[0;34mstacka value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+[0;34mstacka value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+[0;34mstacka value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+
+[0;32mstackb value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;32mstackb value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;32mstackb value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+
+ra
+[0;34mstacka value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+[0;34mstacka value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;34mstacka value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+
+[0;32mstackb value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;32mstackb value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;32mstackb value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+
+end push_to_stackb
+stackb value =20 
+pa
+[0;34mstacka value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;34mstacka value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;34mstacka value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+
+[0;32mstackb value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+[0;32mstackb value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;32mstackb value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+
+pa
+[0;34mstacka value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;34mstacka value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+
+[0;32mstackb value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;32mstackb value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+[0;32mstackb value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;32mstackb value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+
+pa
+[0;34mstacka value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+
+[0;32mstackb value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;32mstackb value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;32mstackb value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+[0;32mstackb value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;32mstackb value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+
+pa
+
+[0;32mstackb value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+[0;32mstackb value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;32mstackb value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;32mstackb value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+[0;32mstackb value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;32mstackb value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+
+pa
+
+[0;32mstackb value :60: index :6: indexbin :6: address 0x5c97852b4390 [0m
+[0;32mstackb value :40: index :4: indexbin :4: address 0x5c97852b4350 [0m
+[0;32mstackb value :20: index :2: indexbin :2: address 0x5c97852b4330 [0m
+[0;32mstackb value :50: index :5: indexbin :5: address 0x5c97852b4370 [0m
+[0;32mstackb value :10: index :1: indexbin :1: address 0x5c97852b4310 [0m
+[0;32mstackb value :30: index :3: indexbin :3: address 0x5c97852b42f0 [0m
+

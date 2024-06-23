@@ -6,11 +6,25 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/23 11:28:34 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/23 17:19:52 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// free the linked list
+void	freelink(t_node **head)
+{
+	t_node	*temp;
+
+	while (*head != NULL)
+	{
+		temp = *head;
+		*head = (*head)->next;
+		free(temp);
+	}
+	*head = NULL;
+}
 
 void	printerror(void)
 {
@@ -62,20 +76,6 @@ t_node	*create_linked_list(int *inttab, int len)
 	return (head);
 }
 
-void	notsorted(int len, t_node *head, t_node *stackb)
-{
-	simplifier(head);
-	len = ft_node_length(head);
-	if (len == 2)
-		sa(&head);
-	else if (len == 3)
-		tinysort(&head);
-	else if (len <= 5)
-		sortfive(&head);
-	else
-		bigsort(head, stackb);
-}
-
 int	main(int ac, char **av)
 {
 	int		*inttab;
@@ -84,17 +84,20 @@ int	main(int ac, char **av)
 	int		len;
 
 	stackb = NULL;
-	freelink(stackb);
+	freelink(&stackb);
 	if (ac == 1 || ac == 2)
 		return (0);
 	inttab = tabint(ac, av, &len);
 	if (!inttab)
+	{
+		free(inttab);
 		printerror();
+	}
 	head = create_linked_list(inttab, len);
 	if (!sortedlist(head))
-		notsorted(len, head, stackb);
+		notsorted(len, &head, &stackb);
 	if (inttab)
 		free(inttab);
-	if (head->next != NULL)
-		freelink(head);
+	if (head)
+		freelink(&head);
 }

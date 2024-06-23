@@ -6,24 +6,25 @@
 #    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/06/19 12:00:39 by jroulet          ###   ########.fr        #
+#    Updated: 2024/06/23 17:23:23 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FLAGS = -Wall -Werror -Wextra
 CC = cc
 DEBUGGER = -g
-SRCS = push_swap.c\
-		totab.c\
-		ft_linkedlist.c\
-		./sort/push.c\
-		./sort/rotate.c\
-		./sort/swap.c\
-		./sort/ft_ll.c\
-		./sort/reverserotate.c\
-		./sort/tinysort.c\
-		./algorythme.c\
-		./printorder.c
+SRCS =	./push_swap.c \
+		./totab.c \
+		./ft_node.c \
+		./algorythme.c \
+		./ft_linkedlist.c \
+		./sort/ft_sort.c \
+		./sort/push.c \
+		./sort/rotate.c \
+		./sort/swap.c \
+		./sort/reverserotate.c \
+		./sort/sort_three.c \
+		./sort/tinysort.c
 OBJS = $(SRCS:.c=.o)
 
 LIBDIR = ./libft

@@ -3,6 +3,7 @@
 		"stdio.h": "c",
 		"iterator": "c",
 		"chrono": "c",
-		"limits": "c"
+		"limits": "c",
+		"push_swap.h": "c"
 	}
 }
