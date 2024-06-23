@@ -2,6 +2,7 @@
 	"files.associations": {
 		"stdio.h": "c",
 		"iterator": "c",
-		"chrono": "c"
+		"chrono": "c",
+		"limits": "c"
 	}
 }

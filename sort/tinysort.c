@@ -6,14 +6,11 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/23 10:27:00 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/23 10:58:26 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
-// return a converted number in binary
-
 
 // push the node to stack b if the bit is 1, else rotate the node
 
@@ -40,23 +37,17 @@ void	radix(t_node **head, t_node **stackb)
 	int		i;
 	int		size;
 
-
 	maxindex = findmaxindex(*head);
 	bit = ft_log(maxindex, 2) + 1;
 	i = 0;
 	while (i < bit)
 	{
 		size = ft_node_length(*head);
-		ft_printf("size %d\n", size);
 		push_to_stackb(head, stackb, size, i);
 		while (*stackb)
 			pusha(head, stackb);
 		i++;
 	}
-	ft_node_print_list(*head, 'a');
-	ft_node_print_list(*stackb, 'b');
-	//freelink(*head);
-
 }
 
 //return a node by it's value
@@ -79,62 +70,42 @@ t_node	*findnodebyvalue(t_node *head, int value)
 void	simplifier(t_node *head)
 {
 	t_node	*current;
-	int		min;
 	int		max;
 	int		counter;
 	int		index;
 
-	min = findminnode(head)->value;
+	counter = findminnode(head)->value;
 	max = findmaxnode(head)->value;
-	counter = min;
 	index = 1;
 	while (counter <= max)
 	{
-		ft_printf("counter %d\n", counter);
-		ft_printf("max %d\n", max);
 		current = findnodebyvalue(head, counter);
-		ft_printf("current %d\n", current);
 		if (current != NULL)
 		{
-			ft_printf("current index %d\n", current->index);
 			current->index = index;
 			index++;
 		}
 		counter++;
 	}
-	ft_printf("simplifier\n");
-	ft_node_print_list(head, 'a');
 }
-//sort a list of 3 elements
 
-void	tinysort(t_node **head)
+void	sort_three(t_node **head, int a_index, int b_index, int c_index)
 {
-	t_node	*tmp;
-	t_node	*a;
-	t_node	*b;
-	t_node	*c;
-
-	tmp = *head;
-	a = tmp;
-	b = a->next;
-	c = b->next;
-	if (sortedlist(*head))
-		return ;
-	if (a->index < b->index)
+	if (a_index < b_index)
 	{
-		if (a->index < c->index)
+		if (a_index > c_index)
+			rra(head);
+		else if (b_index > c_index)
 		{
 			rra(head);
 			sa(head);
 		}
-		else if (a->index > c->index)
-			rra(head);
 	}
 	else
 	{
-		if (a->index < c->index)
+		if (a_index < c_index)
 			sa(head);
-		else if (b->index < c->index)
+		else if (b_index < c_index)
 			ra(head);
 		else
 		{
@@ -142,7 +113,20 @@ void	tinysort(t_node **head)
 			rra(head);
 		}
 	}
-	tmp = *head;
+}
+
+void	tinysort(t_node **head)
+{
+	t_node	*a;
+	t_node	*b;
+	t_node	*c;
+
+	if (sortedlist(*head))
+		return;
+	a = *head;
+	b = a->next;
+	c = b->next;
+	sort_three(head, a->index, b->index, c->index);
 }
 //return the node with the max value in the list
 
@@ -185,15 +169,13 @@ t_node	*findminnode(t_node *head)
 int	sortedlist(t_node *head)
 {
 	t_node	*current;
-	int		sorted;
 
 	current = head;
-	sorted = 1;
 	while (current && current->next != NULL)
 	{
 		if (current->value > current->next->value)
 			return (0);
 		current = current->next;
 	}
-	return (sorted);
+	return (1);
 }
