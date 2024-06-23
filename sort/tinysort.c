@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/23 10:58:26 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/23 11:27:02 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	tinysort(t_node **head)
 	t_node	*c;
 
 	if (sortedlist(*head))
-		return;
+		return ;
 	a = *head;
 	b = a->next;
 	c = b->next;
