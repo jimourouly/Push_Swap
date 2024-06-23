@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 18:05:11 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/09 16:09:17 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/23 10:22:44 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ int	*tabint(int ac, char **av, int *len)
 	char	**tab;
 	int		i;
 	int		*inttab;
+
 	tab = create_tab(ac, av, &i);
 	if (tab == NULL || checker(tab) == 0 || doublechecker(tab) == 0)
 		return ((freetab(tab, ac), NULL));

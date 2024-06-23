@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/19 14:14:31 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/23 10:24:08 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@ void	bigsort(t_node *head, t_node *stackb)
 {
 	simplifier(head);
 	radix(&head, &stackb);
+	freelink(stackb);
+	freelink(head);
 }
 
 // free the linked list
-void freelink(t_node *head)
+void	freelink(t_node *head)
 {
-	t_node *temp;
+	t_node	*temp;
 
 	if (!head)
-		ft_printf("head is null\n") ;
-	while (head)
+		ft_printf("head is null\n");
+	while (head != NULL)
 	{
 		temp = head;
 		head = head->next;
@@ -34,6 +36,7 @@ void freelink(t_node *head)
 	}
 	head = NULL;
 }
+
 // return a node at input index
 t_node	*get_node_at_index(t_node *head, int index)
 {

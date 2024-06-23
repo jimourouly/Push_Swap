@@ -6,33 +6,15 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/19 14:11:54 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/23 10:27:00 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-
 // return a converted number in binary
 
-int	convert_to_binary(int num)
-{
-	int	binary;
-	int	remainder;
-	int	i;
 
-	binary = 0;
-	remainder = 1;
-	i = 1;
-	while (num != 0)
-	{
-		remainder = num % 2;
-		num /= 2;
-		binary += remainder * i;
-		i *= 10;
-	}
-	return (binary);
-}
 // push the node to stack b if the bit is 1, else rotate the node
 
 void	push_to_stackb(t_node **head, t_node **stackb, int size, int i)
@@ -65,6 +47,7 @@ void	radix(t_node **head, t_node **stackb)
 	while (i < bit)
 	{
 		size = ft_node_length(*head);
+		ft_printf("size %d\n", size);
 		push_to_stackb(head, stackb, size, i);
 		while (*stackb)
 			pusha(head, stackb);
@@ -72,7 +55,7 @@ void	radix(t_node **head, t_node **stackb)
 	}
 	ft_node_print_list(*head, 'a');
 	ft_node_print_list(*stackb, 'b');
-	freelink(*head);
+	//freelink(*head);
 
 }
 
@@ -107,14 +90,20 @@ void	simplifier(t_node *head)
 	index = 1;
 	while (counter <= max)
 	{
+		ft_printf("counter %d\n", counter);
+		ft_printf("max %d\n", max);
 		current = findnodebyvalue(head, counter);
+		ft_printf("current %d\n", current);
 		if (current != NULL)
 		{
+			ft_printf("current index %d\n", current->index);
 			current->index = index;
 			index++;
 		}
 		counter++;
 	}
+	ft_printf("simplifier\n");
+	ft_node_print_list(head, 'a');
 }
 //sort a list of 3 elements
 

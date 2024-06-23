@@ -6,13 +6,11 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/19 14:13:41 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/23 10:25:42 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdlib.h>
-#include <limits.h>
 
 void	printerror(void)
 {
@@ -84,40 +82,16 @@ int	main(int ac, char **av)
 		simplifier(head);
 		len = ft_node_length(head);
 		if (len == 2)
-		{
 			sa(&head);
-		}
 		else if (len == 3)
 			tinysort(&head);
 		else if (len <= 5)
-		{
 			sortfive(&head);
-			ft_node_print_list(head, 'a');
-		}
 		else
 			bigsort(head, stackb);
 	}
-
 	if (inttab)
 		free(inttab);
 	if (head->next != NULL)
-	{
-		//ft_printf("freelink head %p \n", head->value);
 		freelink(head);
-	}
 }
-
-
-/*
-
-	1 ok
-	2 ok
-	3 ok
-	4 - 3 leaks
-	5 - 4 leaks
-	6 - 1 free too much
-	7 - 2 free too much
-	8 - 3 leaks too much
-
-
-*/
