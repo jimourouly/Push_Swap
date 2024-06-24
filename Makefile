@@ -6,7 +6,7 @@
 #    By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/10 18:23:30 by jroulet           #+#    #+#              #
-#    Updated: 2024/06/23 17:53:49 by jroulet          ###   ########.fr        #
+#    Updated: 2024/06/24 17:44:16 by jroulet          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,6 @@ FLAGS = -Wall -Werror -Wextra
 CC = cc
 DEBUGGER = -g
 SRCS =	./push_swap.c \
-		./ft_ll.c\
 		./totab.c \
 		./ft_node.c \
 		./algorythme.c \
