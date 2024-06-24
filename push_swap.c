@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/23 17:59:32 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/24 13:55:11 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,17 @@ int	main(int ac, char **av)
 		printerror();
 	}
 	head = create_linked_list(inttab, len);
+	ft_node_print_list(head, 'a');
 	if (!sortedlist(head))
 		notsorted(len, &head, &stackb);
+	ft_node_print_list(head, 'a');
 	if (inttab)
 		free(inttab);
 	if (head)
 		freelink(&head);
 }
+
+/*
+ARG=" "; ./push_swap $ARG | ./checker_linux $ARG
+
+*/
