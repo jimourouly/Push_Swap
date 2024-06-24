@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/23 17:21:51 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/24 15:47:44 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,21 +33,21 @@ void	simplifier(t_node *head)
 {
 	t_node	*current;
 	int		max;
-	int		counter;
+	int		min;
 	int		index;
 
-	counter = findminnode(head)->value;
+	min = findminnode(head)->value;
 	max = findmaxnode(head)->value;
 	index = 1;
-	while (counter <= max)
+	while (min <= max)
 	{
-		current = findnodebyvalue(head, counter);
+		current = findnodebyvalue(head, min);
 		if (current != NULL)
 		{
 			current->index = index;
 			index++;
 		}
-		counter++;
+		min++;
 	}
 }
 

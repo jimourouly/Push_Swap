@@ -6,12 +6,11 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 15:04:40 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/24 13:53:50 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/24 15:51:13 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-
 
 void	rev(t_node **stack)
 {
