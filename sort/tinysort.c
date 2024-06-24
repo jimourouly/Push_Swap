@@ -6,14 +6,13 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/24 15:47:44 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/24 17:24:47 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 //return a node by it's value
-
 t_node	*findnodebyvalue(t_node *head, int value)
 {
 	t_node	*current;
@@ -27,32 +26,30 @@ t_node	*findnodebyvalue(t_node *head, int value)
 	}
 	return (NULL);
 }
-// add index from 1 to x to the list
 
+// add index from 1 to x to the list
 void	simplifier(t_node *head)
 {
-	t_node	*current;
-	int		max;
-	int		min;
 	int		index;
+	int		max;
+	t_node	*smallest;
 
-	min = findminnode(head)->value;
-	max = findmaxnode(head)->value;
 	index = 1;
-	while (min <= max)
+	max = ft_node_length(head);
+	while (index <= max)
 	{
-		current = findnodebyvalue(head, min);
-		if (current != NULL)
+		smallest = findminnode(head);
+		if (smallest != NULL)
 		{
-			current->index = index;
+			smallest->index = index;
 			index++;
 		}
-		min++;
+		else
+			break ;
 	}
 }
 
 //return 1 if the list is sorted, else 0
-
 int	sortedlist(t_node *head)
 {
 	t_node	*current;

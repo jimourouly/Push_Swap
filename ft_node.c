@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:24:23 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/23 12:09:54 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/06/24 17:23:28 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,13 +89,17 @@ t_node	*findminnode(t_node *head)
 	t_node	*smallest;
 
 	current = head;
-	smallest = head;
-	while (current)
+	smallest = NULL;
+	while (current != NULL && current->index != 0)
 	{
-		if (current->value < smallest->value)
-		{
+		current = current->next;
+	}
+	smallest = current;
+	while (current != NULL)
+	{
+		if (current->index == 0 && (smallest == NULL \
+			|| current->value < smallest->value))
 			smallest = current;
-		}
 		current = current->next;
 	}
 	return (smallest);
