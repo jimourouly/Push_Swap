@@ -6,7 +6,7 @@
 /*   By: jroulet <jroulet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 18:23:59 by jroulet           #+#    #+#             */
-/*   Updated: 2024/06/24 17:21:45 by jroulet          ###   ########.fr       */
+/*   Updated: 2024/07/01 10:35:04 by jroulet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int	main(int ac, char **av)
 	int		len;
 
 	stackb = NULL;
-	freelink(&stackb);
 	if (ac == 1)
 		return (0);
 	inttab = tabint(ac, av, &len);
