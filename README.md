@@ -1,24 +1,29 @@
-# Testinette
+# Define the OU DN
+$ouDN = "OU=User,DC=test,DC=ch"
 
-Testinette est un outil conçu pour tester efficacement les programmes implémentant l'algorithme de tri "push_swap". Ce programme est utilisable dans le cadre de l'école 42 et vise à trier une pile d'entiers de manière optimale en utilisant un ensemble limité d'instructions.
+# Specify the extension attribute you're interested in
+# Adjust "extensionAttributeX" to the specific attribute you need, e.g., "extensionAttribute10"
+$extensionAttribute = "extensionAttributeX"
 
-## Fonctionnalités
+# Retrieve users, including specified properties and the extension attribute
+$users = Get-ADUser -Filter * -SearchBase $ouDN -Property DisplayName, Mail, TelephoneNumber, $extensionAttribute -SearchScope OneLevel
 
-- **Test Automatisé :** Évaluez la performance de votre programme push_swap en le soumettant à une batterie de tests automatisés avec votre checker ou celui fournis de base.
-  
-- **Analyse des Résultats :** Obtenez les resultats de votre push_swap, compris le nombre d'instructions utilisées et le temps d'exécution.
+# Prepare data for export
+$dataForExport = foreach ($user in $users) {
+    # Create custom object for each user with the desired structure
+    [PSCustomObject]@{
+        Column1 = $null # nothing
+        DisplayName = $user.DisplayName
+        Mail = $user.Mail
+        TelephoneNumber = $user.TelephoneNumber
+        Column5 = $null # nothing
+        ExtensionAttribute = $user.$extensionAttribute
+        Column7 = $null # nothing
+        SamAccountName = $user.SamAccountName
+    }
+}
 
-- **Tests Personnalisés :** Possibilité d'ajouter vos propres jeux de tests pour évaluer les performances spécifiques de votre implémentation.
+# Export to CSV
+$dataForExport | Export-Csv -Path "ADUsersExport.csv" -NoTypeInformation
 
-## Utilisation
-- **Clonage du Repo :** Clonez ce repo
-  ```bash
-  git clone https://github.com/IlYAN-FISHERMAN/Testinette.git
-- Copier le contenu du repo directement dans votre dossier push_swap (au meme endroit que votre Makefile)
-  ```bash
-  cp -rf Testinette/* ./<votre chemin>
-- Lancez le scypte.
-  ```bash
-  sh testinette.sh
-- Suivre les instructions.
-- Recommencez autant que vous voulez :3.
+# Note: Adjust the path "ADUsersExport.csv" as needed to specify where you want the CSV file saved.
